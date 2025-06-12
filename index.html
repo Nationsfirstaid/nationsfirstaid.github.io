@@ -7,28 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nations First Aid</title>
   <style>
-.site-name {
-  text-align: center;
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #fff;
-  margin: 18px 0 26px 0;
-  letter-spacing: 2px;
-  text-shadow: 0 2px 8px #b2222255;}
-
-    
     body { background: #b22222; margin: 0; font-family: Arial, sans-serif; color: white; }
     .center { 
       position: relative; 
       display: flex; 
       flex-direction: column; 
       align-items: center; 
-      justify-content: center; 
-      height: 100vh; 
+      justify-content: flex-start; 
+      min-height: 100vh; 
       overflow: hidden;
     }
-    .logo { margin-bottom: 24px; z-index: 2; }
-    .slogan { font-size: 2rem; margin-bottom: 32px; z-index: 2;}
+    .logo {
+      display: block;
+      margin: 48px auto 0 auto; /* 48px from top, then auto, then 0 below */
+      z-index: 2;
+      width: 250px;
+      height: 250px;
+    }
+    .site-name {
+      text-align: center;
+      font-size: 2.7rem;
+      font-weight: bold;
+      color: #fff;
+      margin: 18px 0 20px 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px #b2222255;
+      z-index: 2;
+    }
+    .slogan { 
+      font-size: 2rem; 
+      margin-bottom: 32px; 
+      z-index: 2;
+      text-align: center;
+    }
     .nav-btns { display: flex; gap: 20px; z-index: 2;}
     .nav-btns a {
       background: #a01212;
@@ -54,7 +65,9 @@
       user-select: none;
     }
     @media (max-width: 600px) {
-      .slogan { font-size: 1.3rem; }
+      .logo { width: 50vw; height: auto; margin-top: 28px; }
+      .site-name { font-size: 1.6rem; }
+      .slogan { font-size: 1.1rem; }
       .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
       .watermark { width: 93vw; top: 86px; }
     }
@@ -63,10 +76,8 @@
 <body>
   <div class="center">
     <img class="watermark" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Watermark" />
-    <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" width="250" height="250"/>
+    <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
     <div class="site-name">NATIONS FIRST AID</div>
-
-    
     <div class="slogan">Life-Saving Skills for Every Nation</div>
     <div class="nav-btns">
       <a href="about.html">About</a>
@@ -77,6 +88,7 @@
   </div>
 </body>
 </html>
+
 
   
   
