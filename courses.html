@@ -5,116 +5,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Courses | Nations First Aid</title>
+  <title>Nations First Aid – Courses</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #fff; color: #222; }
-    header { background: #b22222; color: white; padding: 30px 10px 10px 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { max-width: 800px; margin: 40px auto; padding: 20px; background: #f9f9f9; border-radius: 10px;}
-    h2 { color: #b22222; }
-    .course { background: #f2f2f2; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
-    ul { margin-left: 24px; }
-
-      .gallery {
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-}
-.gallery img {
-  width: 150px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-}
-@media (max-width: 700px) {
-  .gallery img { width: 40vw; height: 90px; }
-}
-
+    body { background: #b22222; margin: 0; font-family: Arial, sans-serif; color: white; }
+    .center { 
+      position: relative; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: flex-start; 
+      min-height: 100vh; 
+      overflow: hidden;
+    }
+    .site-name {
+      text-align: center;
+      font-size: 2.1rem;
+      font-weight: bold;
+      color: #fff;
+      margin: 24px 0 14px 0;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px #b2222255;
+      z-index: 2;
+    }
+    .nav-btns { display: flex; gap: 20px; margin-bottom: 24px;}
+    .nav-btns a {
+      background: #a01212;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .nav-btns a:hover { background: #c0392b; }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .gallery img {
+      width: 145px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      transition: transform 0.25s cubic-bezier(.38,1.15,.6,1);
+      cursor: pointer;
+      background: #fff3;
+    }
+    .gallery img:hover {
+      transform: scale(1.17);
+      z-index: 2;
+    }
+    .courses-offered {
+      max-width: 800px;
+      margin: auto;
+      background: #fff2;
+      padding: 36px 20px 30px 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .courses-offered h2 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .course-block {
+      background: #fff4;
+      border-radius: 10px;
+      padding: 18px 20px 14px 20px;
+      margin-bottom: 22px;
+      color: #fff;
+    }
+    .course-block a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      .gallery { gap: 10px; }
+      .gallery img { width: 38vw; height: 90px; }
+      .courses-offered { padding: 10px 3vw; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo-nationsfirstaid-white-transparent.png" alt="Nations First Aid Logo" width="90" /><br>
-    <nav>
-      <a href="index.html" >Home</a>
-      <a href="about.html" >About</a>
-      <a href="schedule.html" >Schedule</a>
-      <a href="contact.html" >Contact</a>
-    </nav>
-  </header>
-  <section>
+  <div class="center">
+    <div class="site-name">NATIONS FIRST AID</div>
+    <div class="nav-btns">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="contact.html">Contact</a>
+    </div>
 
-      <div class="gallery">
-  <img src="headtotoe_file_00000000533c61f7bae6dc4027f10d6c (1).png" alt="Head to Toe Bandaging">
-  <img src="life_threatening_bleed_file_00000000d94061fdb07b1cd5a67e47b8.png" alt="Life Threatening Bleed">
-  <img src="Recovery_file_00000000ae4461f88ca4da2a55ea4555.png" alt="Recovery Position">
-  <img src="CPR_AED_file_00000000777c61f58abe89e63c73ccbe (1).png" alt="CPR AED">
-</div>
+    <!-- GALLERY -->
+    <div class="gallery">
+      <img src="headtotoe_file_00000000533c61f7bae6dc4027f10d6c (1).png" alt="First Aid 1" />
+      <img src="life_threatening_bleed_file_00000000d94061fdb07b1cd5a67e47b8.png" alt="First Aid 2" />
+      <img src="Recovery_file_00000000ae4461f88ca4da2a55ea4555.png" alt="First Aid 3" />
+      <img src="CPR_AED_file_00000000777c61f58abe89e63c73ccbe (1).png" alt="First Aid 4" />
+    </div>
 
-    <h2>Courses Offered</h2>
-    <div class="course">
-      <strong>CPR/AED Level A</strong><br>
-      CPR and AED – adult response<br>
-      Duration: 4 hours in-class OR 2 hours in-class + 3 hours online learning<br>
-      Certification: 3-year certification in CPR Level A<br>
-      Note: Recertification for CPR A is not available.
+    <!-- COURSES -->
+    <div class="courses-offered">
+      <h2>Courses Offered</h2>
+      <div class="course-block">
+        <strong>CPR/AED Level A</strong><br>
+        CPR and AED – adult response<br>
+        Duration: 4 hours in-class OR 2 hours in-class + 3 hours online learning<br>
+        Certification: 3-year certification in CPR Level A<br>
+        Note: Recertification for CPR A is not available.
+      </div>
+      <div class="course-block">
+        <strong>CPR/AED Level C</strong><br>
+        Duration: 5 hours<br>
+        Certification: 3-year certification in CPR Level C<br>
+        <a href="FactSheet_CRC_EFA_2025_EN.pdf" target="_blank">Download Course Info (PDF)</a>
+      </div>
+      <div class="course-block">
+        <strong>Standard First Aid (SFA) with CPR/AED Level C – Blended</strong><br>
+        Duration: 14 hours<br>
+        Certification: 3-year certification<br>
+        <a href="FactSheet_CRC_SFA_2025_EN.pdf" target="_blank">Download Course Info (PDF)</a>
+      </div>
+      <div class="course-block">
+        <strong>Emergency First Aid with CPR/AED Level C (Recertification)</strong><br>
+        Duration: 7.5 hours<br>
+        <a href="FactSheet_CRC_EFA_2025_EN.pdf" target="_blank">Download Course Info (PDF)</a>
+      </div>
+      <div class="course-block">
+        <strong>Standard First Aid with CPR/AED Level C (Recertification)</strong><br>
+        Duration: 7.5 hours<br>
+        <a href="FactSheet_CRC_SFA_2025_EN.pdf" target="_blank">Download Course Info (PDF)</a>
+      </div>
     </div>
-    <div class="course">
-      <strong>CPR/AED Level C</strong><br>
-      Duration: 5 hours<br>
-      Certification: 3-year certification in CPR Level C<br>
-      <a href="https://myrc.redcross.ca/en/home-course-details/fa-cpr/" target="_blank">View Course Details</a>
-    </div>
-    <div class="course">
-      <strong>Standard First Aid (SFA) with CPR/AED Level C – Blended</strong><br>
-      Duration: 14 hours<br>
-      Certification: 3-year certification<br>
-      <a href="https://cdn.redcross.ca/prodmedia/crc/documents/FactSheet_CRC_SFA_EN-PDF.pdf" target="_blank">Download Course Info (PDF)</a>
-    </div>
-    <div class="course">
-      <strong>Emergency First Aid with CPR/AED Level C (Recertification)</strong><br>
-      Duration: 7.5 hours<br>
-      <a href="https://myrc.redcross.ca/en/home-course-details/fa-efa/" target="_blank">View Course Details</a>
-    </div>
-    <div class="course">
-      <strong>MBFA - Blended</strong><br>
-      <a href="https://myrc.redcross.ca/en/home-course-details/fa-mbfa/" target="_blank">View Course Details</a>
-    </div>
-    <div class="course">
-      <strong>Standard First Aid with CPR/AED Level C (Recertification)</strong><br>
-      Duration: 7.5 hours<br>
-      <a href="https://cdn.redcross.ca/prodmedia/crc/documents/FactSheet_CRC_SFA_EN-PDF.pdf" target="_blank">Download Course Info (PDF)</a>
-    </div>
-    <h3>Course Content</h3>
-    <p><strong>Level A:</strong>
-    <ul>
-      <li>The Red Cross</li>
-      <li>Responding to Emergencies</li>
-      <li>Check, Call, Care</li>
-      <li>Recovery position</li>
-      <li>Choking – adult</li>
-      <li>Assisting with medications</li>
-      <li>Angina and heart attack</li>
-      <li>Stroke</li>
-      <li>CPR and AED – adult</li>
-      <li>Deadly bleeding</li>
-    </ul></p>
-    <p><strong>Level C (includes all Level A content plus):</strong>
-    <ul>
-      <li>Choking – child and baby</li>
-      <li>CPR and AED – child and baby</li>
-      <li>Opioid poisoning awareness</li>
-      <li>Additional content based on specific legislation</li>
-    </ul></p>
-    <h3>Participant Materials</h3>
-    <ul>
-      <li><a href="https://cdn.redcross.ca/prodmedia/crc/azure/documents/comprehensive_guide_for_firstaidcpr_en.pdf" target="_blank">Comprehensive Guide to First Aid & CPR (eBook)</a></li>
-      <li>Digital certificate issued upon successful completion</li>
-    </ul>
-  </section>
+  </div>
 </body>
 </html>
+
