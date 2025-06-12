@@ -15,6 +15,25 @@
     h2 { color: #b22222; }
     .course { background: #f2f2f2; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
     ul { margin-left: 24px; }
+
+      .gallery {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.gallery img {
+  width: 150px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+@media (max-width: 700px) {
+  .gallery img { width: 40vw; height: 90px; }
+}
+
   </style>
 </head>
 <body>
@@ -28,6 +47,14 @@
     </nav>
   </header>
   <section>
+
+      <div class="gallery">
+  <img src="headtotoe_file_00000000533c61f7bae6dc4027f10d6c (1).png" alt="Head to Toe Bandaging">
+  <img src="life_threatening_bleed_file_00000000d94061fdb07b1cd5a67e47b8.png" alt="Life Threatening Bleed">
+  <img src="Recovery_file_00000000ae4461f88ca4da2a55ea4555.png" alt="Recovery Position">
+  <img src="CPR_AED_file_00000000777c61f58abe89e63c73ccbe (1).png" alt="CPR AED">
+</div>
+
     <h2>Courses Offered</h2>
     <div class="course">
       <strong>CPR/AED Level A</strong><br>
