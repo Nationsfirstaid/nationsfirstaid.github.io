@@ -7,10 +7,18 @@
   <title>Nations First Aid</title>
   <style>
     body { background: #b22222; margin: 0; font-family: Arial, sans-serif; color: white; }
-    .center { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
-    .logo { margin-bottom: 24px; }
-    .slogan { font-size: 2rem; margin-bottom: 32px; }
-    .nav-btns { display: flex; gap: 20px; }
+    .center { 
+      position: relative; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      height: 100vh; 
+      overflow: hidden;
+    }
+    .logo { margin-bottom: 24px; z-index: 2; }
+    .slogan { font-size: 2rem; margin-bottom: 32px; z-index: 2;}
+    .nav-btns { display: flex; gap: 20px; z-index: 2;}
     .nav-btns a {
       background: #a01212;
       color: #fff;
@@ -22,23 +30,36 @@
       transition: background 0.2s;
     }
     .nav-btns a:hover { background: #c0392b; }
+    .watermark {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.07;
+      width: 80vw; max-width: 650px;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+    }
     @media (max-width: 600px) {
       .slogan { font-size: 1.3rem; }
       .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
+      .watermark { max-width: 90vw; }
     }
   </style>
 </head>
 <body>
   <div class="center">
+    <img class="watermark" src="logo-nationsfirstaid-white-transparent.png" alt="Watermark" />
     <img class="logo" src="logo-nationsfirstaid-white-transparent.png" alt="Nations First Aid Logo" width="250" height="250"/>
     <div class="slogan">Life-Saving Skills for Every Nation</div>
     <div class="nav-btns">
-      <a href="about.html" >About</a>
-      <a href="courses.html" >Courses</a>
-      <a href="schedule.html" >Schedule</a>
-      <a href="contact.html" >Contact</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </body>
 </html>
+
 
