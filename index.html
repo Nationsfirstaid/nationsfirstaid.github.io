@@ -1,6 +1,6 @@
 
 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -34,11 +34,11 @@
     .watermark {
       position: absolute;
       left: 50%;
-      top: 2px;  /* Pushed up so text lands just below tabs */
+      top: 90px;     /* Sets the vertical placement just below the tabs */
       transform: translateX(-50%);
-      opacity: 0.10;
-      width: 98vw;   /* Very large watermark */
-      max-width: 1100px;
+      opacity: 0.08;
+      width: 420px;  /* Adjust this for size. 420px works well for most navs */
+      max-width: 90vw;
       z-index: 1;
       pointer-events: none;
       user-select: none;
@@ -46,14 +46,14 @@
     @media (max-width: 600px) {
       .slogan { font-size: 1.3rem; }
       .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
-      .watermark { top: 100px; max-width: 97vw; }
+      .watermark { width: 93vw; top: 86px; }
     }
   </style>
 </head>
 <body>
   <div class="center">
     <img class="watermark" src="logo-nationsfirstaid-white-transparent.png" alt="Watermark" />
-    <img class="logo" src="logo-nationsfirstaid-white-transparent.png" alt="Nations First Aid Logo" width="200" height="200"/>
+    <img class="logo" src="logo-nationsfirstaid-white-transparent.png" alt="Nations First Aid Logo" width="250" height="250"/>
     <div class="slogan">Life-Saving Skills for Every Nation</div>
     <div class="nav-btns">
       <a href="about.html">About</a>
@@ -64,5 +64,8 @@
   </div>
 </body>
 </html>
+
+  
+  
  
 
