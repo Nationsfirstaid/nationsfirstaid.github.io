@@ -1,5 +1,6 @@
 
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -32,10 +33,12 @@
     .nav-btns a:hover { background: #c0392b; }
     .watermark {
       position: absolute;
-      left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.07;
-      width: 80vw; max-width: 650px;
+      left: 50%;
+      top: 118px;  /* Pushed up so text lands just below tabs */
+      transform: translateX(-50%);
+      opacity: 0.10;
+      width: 98vw;   /* Very large watermark */
+      max-width: 1100px;
       z-index: 1;
       pointer-events: none;
       user-select: none;
@@ -43,7 +46,7 @@
     @media (max-width: 600px) {
       .slogan { font-size: 1.3rem; }
       .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
-      .watermark { max-width: 90vw; }
+      .watermark { top: 100px; max-width: 97vw; }
     }
   </style>
 </head>
@@ -61,5 +64,5 @@
   </div>
 </body>
 </html>
-
+ 
 
