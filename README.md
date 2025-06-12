@@ -1,2 +1,2 @@
-# Eyepan
+
 First Aid classes
