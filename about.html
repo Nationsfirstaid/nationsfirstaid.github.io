@@ -23,70 +23,82 @@
     }
     .logo {
       display: block;
-      margin: 24px auto 0 auto;  /* Reduced top margin */
+      margin: 32px auto 0 auto;
       z-index: 2;
-      width: 144px;
+      width: 220px;
       height: auto;
     }
     .site-name {
       text-align: center;
-      font-size: 2.7rem;
+      font-size: 2.6rem;
       font-weight: bold;
       color: #fff;
-      margin: 10px 0 0 0;      /* Reduced bottom margin */
+      margin: 10px 0 8px 0;
       letter-spacing: 2px;
       text-shadow: 0 2px 8px #b2222255;
       z-index: 2;
     }
     .nav-btns {
       display: flex;
-      gap: 12px;
+      gap: 20px;
       z-index: 2;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .nav-btns a {
       background: #a01212;
       color: #fff;
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1rem;
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-size: 1.1rem;
       font-weight: bold;
       transition: background 0.2s;
     }
-    .nav-btns a:hover {
-      background: #c0392b;
-    }
+    .nav-btns a:hover { background: #c0392b; }
     .watermark {
       position: absolute;
       left: 50%;
-      top: 90px;
+      top: 86px;
       transform: translateX(-50%);
-      opacity: 0.02;
-      width: 288px;
+      opacity: 0.08;
+      width: 420px;
       max-width: 90vw;
       z-index: 1;
       pointer-events: none;
       user-select: none;
     }
-    .about-header {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-top: 30px;   /* Decreased space from logo/name to About Us */
-      margin-bottom: 12px;
-    }
     @media (max-width: 600px) {
-      .logo { width: 120px; height: auto; margin-top: 16px; }
-      .site-name { font-size: 1.8rem; }
-      .nav-btns { flex-direction: column; width: 90vw; gap: 10px; margin-bottom: 12px; }
-      .nav-btns a { font-size: 0.95rem; padding: 10px 16px; }
-      .watermark { width: 80vw; top: 80px; }
-      .image-row { flex-direction: column; gap: 16px; }
-      .image-left, .image-center, .image-right { width: 80% !important; }
-      .bottom-nav { flex-direction: column; gap: 10px; }
-      .bottom-nav a { font-size: 0.95rem; padding: 10px 16px; }
-      .about-header { margin-top: 18px; }
+      .logo { width: 50vw; height: auto; margin-top: 18px; }
+      .site-name { font-size: 1.5rem; }
+      .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
+      .watermark { width: 93vw; top: 66px; }
     }
+    /* About section styles */
+    .about-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 20px 20px 20px;
+    }
+    .about-title {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-top: 28px;
+    }
+    .about-paragraph {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    blockquote {
+      margin: 30px auto;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #ffdede;
+      border-left: 4px solid #fff;
+      padding-left: 20px;
+    }
+    /* Images row if you have logos/images below */
     .image-row {
       display: flex;
       justify-content: center;
@@ -99,38 +111,22 @@
       transition: transform 0.4s ease;
       user-select: none;
       pointer-events: none;
+      width: 180px;
+      height: auto;
+      object-fit: cover;
+      background: #fff2;
     }
     .image-row img:hover {
-      transform: scale(1.4);
-    }
-    .image-left,
-    .image-right {
-      width: 33%;
-    }
-    .image-center {
-      width: 22%;
+      transform: scale(1.12);
     }
     @media (max-width: 768px) {
-      .image-row { flex-direction: column; }
-      .image-row img { width: 100% !important; }
+      .image-row {
+        flex-direction: column;
+      }
+      .image-row img {
+        width: 70vw !important;
+      }
     }
-    .bottom-nav {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 40px 0;
-    }
-    .bottom-nav a {
-      background: #a01212;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-    .bottom-nav a:hover { background: #c0392b; }
   </style>
 </head>
 <body>
@@ -138,48 +134,47 @@
     <img class="watermark" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Watermark" />
     <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
     <div class="site-name">NATIONS FIRST AID</div>
-    <div class="bottom-nav" style="margin-bottom: 12px;">
+    <div class="nav-btns">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="courses.html">Courses</a>
+      <a href="schedule.html">Schedule</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 
-  <div style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 0 20px 20px 20px;">
-    <h2 class="about-header">About Us</h2>
-    <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 20px;">
+  <div class="about-container">
+    <h2 class="about-title">About Us</h2>
+    <p class="about-paragraph">
       We are a team of certified instructors dedicated to delivering impactful and culturally aware Red Cross first aid and CPR training. With a focus on hands-on learning, personal growth, and community empowerment, our approach blends visual storytelling, lived experience, and accessible teaching.
     </p>
-    <blockquote style="margin: 30px auto; font-style: italic; font-size: 1.3rem; color: #ffdede; border-left: 4px solid #fff; padding-left: 20px;">
+
+    <blockquote>
       “Safety is medicine. Culture is connection. Education is empowerment.”
     </blockquote>
-    <p style="font-size: 1.2rem; line-height: 1.6;">
+
+    <p class="about-paragraph">
       Our instructors come from diverse backgrounds including trades, urban life, cultural practices, and life coaching. These experiences help us connect with students from all walks of life and tailor each session to be as meaningful as it is practical.
     </p>
-    <p style="font-size: 1.2rem; line-height: 1.6;">
+    <p class="about-paragraph">
       We believe in the power of recovery, growth, and gratitude — values that are interwoven into every training. Our vision is rooted in a decade of freedom, personal development, and a commitment to helping others learn the skills that save lives.
     </p>
-    <p style="font-size: 1.2rem; line-height: 1.6;">
+    <p class="about-paragraph">
       Our mission is simple: to help students gain the knowledge, confidence, and hands-on ability to save or assist another human being in a time of crisis. We teach to remove fear, replace it with action, and ensure there's always a solution when it matters most.
     </p>
-    <p style="font-size: 1.2rem; line-height: 1.6;">
+    <p class="about-paragraph">
       We take pride in being a compassionate and collaborative team, committed to delivering exceptional service and personalized support. Whether you're tech-savvy or new to digital tools, we’re here to make learning accessible, inclusive, and responsive to your unique needs — every step of the way.
     </p>
+
     <div class="image-row">
-      <img class="image-left" src="images/logo-FB_IMG_1701563919369.jpg" alt="Red Sky Teepee – a symbol of strength and heritage in first aid context" />
-      <img class="image-center" src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo – representing courage, healing, and community" />
-      <img class="image-right" src="images/logo-FB_IMG_1701563929368.jpg" alt="Teepee Simple Logo – symbolizing safe space and traditional knowledge" />
+      <img src="images/logo-FB_IMG_1701563919369.jpg" alt="Red Sky Teepee – a symbol of strength and heritage in first aid context" />
+      <img src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo – representing courage, healing, and community" />
+      <img src="images/logo-FB_IMG_1701563929368.jpg" alt="Teepee Simple Logo – symbolizing safe space and traditional knowledge" />
     </div>
-    <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 30px;">
+
+    <p class="about-paragraph" style="margin-top: 30px;">
       Our work connects tradition with training — creating a growing movement to make first aid accessible, culturally respectful, and community-driven.
     </p>
-    <div class="bottom-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="courses.html">Courses</a>
-      <a href="contact.html">Contact</a>
-    </div>
   </div>
 </body>
 </html>
