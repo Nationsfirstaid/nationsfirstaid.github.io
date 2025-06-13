@@ -1,6 +1,5 @@
 
- 
-    <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -34,7 +33,14 @@
       text-shadow: 0 2px 8px #b2222255;
       z-index: 2;
     }
-    .nav-btns { display: flex; gap: 20px; z-index: 2; margin-bottom: 32px;}
+    .nav-btns, .nav-btns-bottom { 
+      display: flex; 
+      gap: 20px; 
+      z-index: 2; 
+      margin-bottom: 32px;
+      justify-content: center;
+      margin-top: 0;
+    }
     .nav-btns a {
       background: #a01212;
       color: #fff;
@@ -76,12 +82,32 @@
       color: #fff;
       text-shadow: 0 2px 6px #b2222255;
     }
+    /* Bottom nav style */
+    .nav-btns-bottom {
+      margin-top: 44px;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+    .nav-btns-bottom a {
+      background: #a01212;
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 18px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: normal;
+      opacity: 0.8;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .nav-btns-bottom a:hover { background: #c0392b; opacity: 1; }
     @media (max-width: 600px) {
       .logo { width: 48vw; height: auto; margin-top: 28px; }
       .site-name { font-size: 1.5rem; }
-      .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
+      .nav-btns, .nav-btns-bottom { flex-direction: column; width: 80vw; gap: 12px; }
       .about-box { padding: 18px 6vw 18px 6vw; }
       .watermark { width: 93vw; top: 86px; }
+      .nav-btns-bottom { margin-top: 26px; margin-bottom: 10px;}
+      .nav-btns-bottom a { font-size: 0.92rem; padding: 7px 10px; }
     }
   </style>
 </head>
@@ -89,17 +115,19 @@
   <div class="center">
     <!-- Watermark (faint background logo) -->
     <img class="watermark" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Watermark" />
-    <!-- Main Logo -->
-    <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
-    <!-- Site Name -->
-    <div class="site-name">NATIONS FIRST AID</div>
-    <!-- Navigation -->
+    
+    <!-- Navigation at top -->
     <div class="nav-btns">
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="courses.html">Courses</a>
       <a href="schedule.html">Schedule</a>
       <a href="contact.html">Contact</a>
     </div>
+    <!-- Main Logo -->
+    <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
+    <!-- Site Name -->
+    <div class="site-name">NATIONS FIRST AID</div>
     <!-- About Us Content -->
     <section class="about-box">
       <h2>About Us</h2>
@@ -107,60 +135,14 @@
         We take pride in being a compassionate and collaborative team, committed to delivering exceptional service and personalized support. Whether you're tech-savvy or new to digital tools, we’re here to make learning accessible, inclusive, and responsive to your unique needs — every step of the way.
       </p>
     </section>
+    <!-- Bottom navigation -->
+    <div class="nav-btns-bottom">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </body>
 </html>
-
-
-    <p style="font-size: 1.2rem; line-height: 1.6;">
-      Our instructors come from diverse backgrounds including trades, urban life, cultural practices, and life coaching. These experiences help us connect with students from all walks of life and tailor each session to be as meaningful as it is practical.
-    </p>
-
-    <p style="font-size: 1.2rem; line-height: 1.6;">
-      We believe in the power of recovery, growth, and gratitude — values that are interwoven into every training. Our vision is rooted in a decade of freedom, personal development, and a commitment to helping others learn the skills that save lives.
-    </p>
-
-    <p style="font-size: 1.2rem; line-height: 1.6;">
-      Our mission is simple: to help students gain the knowledge, confidence, and hands-on ability to save or assist another human being in a time of crisis. We teach to remove fear, replace it with action, and ensure there's always a solution when it matters most.
-    </p>
-
-    <p style="font-size: 1.2rem; line-height: 1.6;">
-      We take pride in being a compassionate and collaborative team, committed to delivering exceptional service and personalized support. Whether you're tech-savvy or new to digital tools, we’re here to make learning accessible, inclusive, and responsive to your unique needs — every step of the way.
-    </p>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Warrior Heart Logo</p>
-      </div>
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/logo-FB_IMG_1697857862880.jpg" alt="Inside the Teepee" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Inside the Teepee</p>
-      </div>
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/logo-FB_IMG_1734825317866.jpg" alt="Red Sky Teepee" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Red Sky Teepee</p>
-      </div>
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/bandaging-in-tipi-1.jpg" alt="First Aid Bandaging" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Traditional Healing Practice</p>
-      </div>
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/bandaging-in-tipi-2.jpg" alt="Cultural First Aid Scene" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Cultural First Aid Scene</p>
-      </div>
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/teepee-shadow-light.jpg" alt="Teepee Light & Shadow" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Teepee Light & Shadow</p>
-      </div>
-      <div style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/teepee-glow.jpg" alt="Golden Glow Teepee" style="width: 100%; border-radius: 12px; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(3)'" onmouseout="this.style.transform='scale(1)'" />
-        <p style="margin-top: 10px; font-weight: bold;">Golden Glow Teepee</p>
-      </div>
-    </div>
-
-    <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 30px;">
-      Our work connects tradition with training — creating a growing movement to make first aid accessible, culturally respectful, and community-driven.
-    </p>
-  </div>
-</section>
