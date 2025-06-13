@@ -1,8 +1,10 @@
 
-<section style="background: #430000 url('images/watermark-homepage.png') center top / cover no-repeat; padding: 0; font-family: Arial, sans-serif; color: white;">
+
+    
+      <section style="background: #430000 url('images/watermark-homepage.png') center top / cover no-repeat; padding: 0; font-family: Arial, sans-serif; color: white;">
   <div style="text-align: center; padding: 40px 20px 20px 20px;">
     <!-- Consistent Top Logo Section -->
-    <img src="images/logo-20250612_1645_Teepee First Aid_simple_compose_01jxk508dtetd96brkq9kpg3rd.png" alt="Nations First Aid Logo" style="width: 200px; max-width: 90%; margin-bottom: 20px;" />
+    <img src="images/logo-FB_IMG_1701563929368.jpg" alt="Nations First Aid Logo" style="width: 200px; max-width: 90%; margin-bottom: 20px;" />
 
     <!-- Navigation Tabs Top -->
     <nav style="margin-bottom: 30px;">
@@ -41,29 +43,36 @@
 
     <style>
       @media (max-width: 768px) {
-        .image-container {
-          flex: 1 1 100% !important;
+        .image-row {
+          flex-direction: column;
+        }
+        .image-row img {
+          width: 100% !important;
         }
       }
-      .image-container img {
+      .image-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .image-row img {
+        width: 30%;
+        border-radius: 12px;
         transition: transform 0.4s ease;
         user-select: none;
         pointer-events: none;
       }
-      .image-container:hover img {
+      .image-row img:hover {
         transform: scale(1.5);
       }
     </style>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-      <div class="image-container" style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo" style="width: 100%; border-radius: 12px;" />
-        <p style="margin-top: 10px; font-weight: bold; color: #fff;">Warrior Heart Logo</p>
-      </div>
-      <div class="image-container" style="flex: 1 1 300px; text-align: center; overflow: hidden;">
-        <img src="images/logo-FB_IMG_1734825317866.jpg" alt="Red Sky Teepee" style="width: 100%; border-radius: 12px;" />
-        <p style="margin-top: 10px; font-weight: bold; color: #fff;">Red Sky Teepee</p>
-      </div>
+    <div class="image-row">
+      <img src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo" />
+      <img src="images/logo-FB_IMG_1701563919369.jpg" alt="Red Sky Teepee" />
+      <img src="images/logo-FB_IMG_1701563929368.jpg" alt="Teepee Simple Logo" />
     </div>
 
     <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 30px;">
@@ -79,4 +88,3 @@
     </nav>
   </div>
 </section>
- 
