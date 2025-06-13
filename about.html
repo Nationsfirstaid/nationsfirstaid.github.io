@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Learn about Nations First Aid – empowering communities with life-saving skills through culturally aware, Red Cross certified training." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us - Nations First Aid</title>
   <style>
@@ -25,9 +26,9 @@
     }
     .logo {
       display: block;
-      margin: 48px auto 0 auto;
+      margin: 32px auto 0 auto;
       z-index: 2;
-      width: 144px; /* approx. 2 inches at 72ppi */
+      width: 144px;
       height: auto;
     }
     .site-name {
@@ -35,29 +36,24 @@
       font-size: 2.7rem;
       font-weight: bold;
       color: #fff;
-      margin: 18px 0 20px 0;
+      margin: 18px 0 10px 0;
       letter-spacing: 2px;
       text-shadow: 0 2px 8px #b2222255;
       z-index: 2;
     }
-    .slogan {
-      font-size: 2rem;
-      margin-bottom: 32px;
-      z-index: 2;
-      text-align: center;
-    }
     .nav-btns {
       display: flex;
-      gap: 20px;
+      gap: 12px;
       z-index: 2;
+      margin-bottom: 10px;
     }
     .nav-btns a {
       background: #a01212;
       color: #fff;
       text-decoration: none;
-      padding: 16px 32px;
-      border-radius: 10px;
-      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
       font-weight: bold;
       transition: background 0.2s;
     }
@@ -69,8 +65,8 @@
       left: 50%;
       top: 90px;
       transform: translateX(-50%);
-      opacity: 0.05; /* lighter watermark */
-      width: 288px; /* approx. 4 inches at 72ppi */
+      opacity: 0.02;
+      width: 288px;
       max-width: 90vw;
       z-index: 1;
       pointer-events: none;
@@ -80,13 +76,10 @@
       .logo {
         width: 50vw;
         height: auto;
-        margin-top: 10px;
+        margin-top: 28px;
       }
       .site-name {
         font-size: 1.6rem;
-      }
-      .slogan {
-        font-size: 1.1rem;
       }
       .nav-btns {
         flex-direction: column;
@@ -129,6 +122,25 @@
         width: 100% !important;
       }
     }
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 40px 0;
+    }
+    .bottom-nav a {
+      background: #a01212;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .bottom-nav a:hover {
+      background: #c0392b;
+    }
   </style>
 </head>
 <body>
@@ -136,7 +148,6 @@
     <img class="watermark" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Watermark" />
     <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
     <div class="site-name">NATIONS FIRST AID</div>
-    
     <div class="nav-btns">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -145,13 +156,13 @@
     </div>
   </div>
 
-  <div style="max-width: 10px; margin: auto; text-align: center; padding: 20px;">
-    <h2 style="font-size: 2.5rem; color: #fff;">About Us</h2>
+  <div style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 5px 20px 20px 20px;">
+    <h2 style="font-size: 2.5rem; color: #fff; margin-top: 4px;">About Us</h2>
     <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 20px;">
       We are a team of certified instructors dedicated to delivering impactful and culturally aware Red Cross first aid and CPR training. With a focus on hands-on learning, personal growth, and community empowerment, our approach blends visual storytelling, lived experience, and accessible teaching.
     </p>
 
-    <blockquote style="margin: 30px auto; font-style: italic; font-size: 1.3rem; color: #ffdddd;">
+    <blockquote style="margin: 30px auto; font-style: italic; font-size: 1.3rem; color: #ffdede;">
       “Safety is medicine. Culture is connection. Education is empowerment.”
     </blockquote>
 
@@ -172,14 +183,21 @@
     </p>
 
     <div class="image-row">
-      <img class="image-left" src="images/logo-FB_IMG_1701563919369.jpg" alt="Red Sky Teepee" />
-      <img class="image-center" src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo" />
-      <img class="image-right" src="images/logo-FB_IMG_1701563929368.jpg" alt="Teepee Simple Logo" />
+      <img class="image-left" src="images/logo-FB_IMG_1701563919369.jpg" alt="Red Sky Teepee – a symbol of strength and heritage in first aid context" />
+      <img class="image-center" src="images/logo-FB_IMG_1710685167496.jpg" alt="Warrior Heart Logo – representing courage, healing, and community" />
+      <img class="image-right" src="images/logo-FB_IMG_1701563929368.jpg" alt="Teepee Simple Logo – symbolizing safe space and traditional knowledge" />
     </div>
 
     <p style="font-size: 1.2rem; line-height: 1.6; margin-top: 30px;">
       Our work connects tradition with training — creating a growing movement to make first aid accessible, culturally respectful, and community-driven.
     </p>
+
+    <div class="bottom-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 </body>
 </html>
