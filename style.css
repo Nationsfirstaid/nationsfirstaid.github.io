@@ -31,7 +31,7 @@ body {
   z-index: 2;
 }
 .slogan {
-  font-size: 1.7rem;
+  font-size: 1.1rem;
   margin-bottom: 32px;
   z-index: 2;
   text-align: center;
@@ -48,7 +48,7 @@ body {
   text-decoration: none;
   padding: 13px 28px;
   border-radius: 10px;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: bold;
   transition: background 0.2s;
 }
@@ -71,7 +71,7 @@ footer {
   text-align: center;
   background: rgba(178,34,34,0.88);
   color: #fff;
-  font-size: 0.60rem;
+  font-size: 0.45rem;
   margin-top: 40px;
   letter-spacing: 1px;
 }
@@ -93,7 +93,7 @@ footer {
   background: #fff3;
 }
 .gallery img:hover {
-  transform: scale(1.17);
+  transform: scale(1.369);
   z-index: 2;
 }
 .courses-offered {
