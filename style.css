@@ -22,7 +22,7 @@ body {
 }
 .site-name {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 3.6rem;
   font-weight: bold;
   color: #fff;
   margin: 18px 0 20px 0;
@@ -31,7 +31,7 @@ body {
   z-index: 2;
 }
 .slogan {
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-bottom: 32px;
   z-index: 2;
   text-align: center;
@@ -71,7 +71,7 @@ footer {
   text-align: center;
   background: rgba(178,34,34,0.88);
   color: #fff;
-  font-size: 0.83rem;
+  font-size: 0.60rem;
   margin-top: 40px;
   letter-spacing: 1px;
 }
