@@ -2,35 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact – Nations First Aid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Nations First Aid</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="center">
-    <img class="watermark" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Watermark" />
-    <img class="logo" src="logo-White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
+    <!-- Use a larger watermark for contact page -->
+    <img class="watermark" style="opacity:0.12;width:90vw;max-width:900px;" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />
+    <img class="logo" src="logos/White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
     <div class="site-name">NATIONS FIRST AID</div>
     <div class="nav-btns">
-      <a href="home.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="courses.html">Courses</a>
       <a href="schedule.html">Schedule</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="slogan">Get in Touch</div>
   </div>
-  <div style="max-width: 900px; margin: 30px auto 0 auto; padding: 20px; background: rgba(255,255,255,0.06); border-radius: 12px;">
-    <h2 style="color: #fff; text-align: center;">Contact</h2>
-    <p style="font-size: 1.1rem; text-align: center;">
-      Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#fff;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
+  <div style="max-width: 600px; margin: 0 auto; background: #fff2; border-radius:14px; padding:36px 20px 26px 20px; box-shadow:0 2px 16px rgba(0,0,0,0.08);">
+    <h2 style="color: #fff; margin-bottom:14px;">Contact</h2>
+    <p style="font-size:1.15rem;line-height:1.7;">
+      Email: <a style="color:#fff;text-decoration:underline;" href="mailto:nationsfirstaid@mail.com">nationsfirstaid@mail.com</a><br>
       Phone: 587-599-9355
     </p>
+    <h3 style="color:#fff;">Or use the form below:</h3>
+    <form action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST" style="margin-top:20px;">
+      <input type="hidden" name="_captcha" value="false">
+      <label for="name">Full Name</label><br>
+      <input type="text" id="name" name="name" required style="width:80%;margin:5px 0 15px 0;"><br>
+      <label for="email">Email Address</label><br>
+      <input type="email" id="email" name="email" required style="width:80%;margin:5px 0 15px 0;"><br>
+      <label for="message">Message</label><br>
+      <textarea id="message" name="message" rows="4" style="width:80%;margin:5px 0 15px 0;"></textarea><br>
+      <button type="submit" style="background:#a01212;color:#fff;padding:10px 30px;border-radius:8px;border:none;font-size:1rem;font-weight:bold;margin-top:10px;">Send</button>
+    </form>
   </div>
   <footer>
-    &copy; 2025 Nations First Aid. All rights reserved.<br>
-    All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator. Unauthorized reproduction, distribution, or commercial use is strictly prohibited.<br>
-    Use of Indigenous imagery and symbols is with respect for cultural significance and community tradition.
+    <small>
+      &copy; 2025 Nations First Aid. All rights reserved.<br>
+      All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator. Unauthorized reproduction, distribution, or commercial use is strictly prohibited.<br>
+      Use of Indigenous imagery and symbols is with respect for cultural significance and community tradition.
+    </small>
   </footer>
 </body>
 </html>
