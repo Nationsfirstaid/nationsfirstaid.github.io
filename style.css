@@ -4,7 +4,6 @@ body {
   font-family: Arial, sans-serif;
   color: white;
 }
-
 .center {
   position: relative;
   display: flex;
@@ -14,7 +13,6 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
-
 .logo {
   display: block;
   margin: 48px auto 0 auto;
@@ -22,7 +20,6 @@ body {
   width: 250px;
   height: 250px;
 }
-
 .site-name {
   text-align: center;
   font-size: 2.7rem;
@@ -33,20 +30,17 @@ body {
   text-shadow: 0 2px 8px #b2222255;
   z-index: 2;
 }
-
 .slogan {
   font-size: 2rem;
   margin-bottom: 32px;
   z-index: 2;
   text-align: center;
 }
-
 .nav-btns {
   display: flex;
   gap: 20px;
   z-index: 2;
 }
-
 .nav-btns a {
   background: #a01212;
   color: #fff;
@@ -57,54 +51,33 @@ body {
   font-weight: bold;
   transition: background 0.2s;
 }
-
-.nav-btns a:hover {
-  background: #c0392b;
-}
-
+.nav-btns a:hover { background: #c0392b; }
 .watermark {
   position: absolute;
   left: 50%;
   top: 90px;
   transform: translateX(-50%);
-  opacity: 0.08;
-  width: 420px;
-  max-width: 90vw;
+  opacity: 0.09;
+  width: 65vw;
+  max-width: 700px;
   z-index: 1;
   pointer-events: none;
   user-select: none;
 }
-
 footer {
-  background: rgba(178,34,34,0.83);
-  color: #fff;
-  padding: 18px 0;
+  width: 100%;
+  padding: 12px 0 12px 0;
   text-align: center;
-  font-size: 0.92rem;
+  background: rgba(178,34,34,0.88);
+  color: #fff;
+  font-size: 0.93rem;
   margin-top: 40px;
   letter-spacing: 1px;
-  width: 100%;
 }
-
 @media (max-width: 600px) {
-  .logo {
-    width: 50vw;
-    height: auto;
-    margin-top: 28px;
-  }
-  .site-name {
-    font-size: 1.6rem;
-  }
-  .slogan {
-    font-size: 1.1rem;
-  }
-  .nav-btns {
-    flex-direction: column;
-    width: 80vw;
-    gap: 12px;
-  }
-  .watermark {
-    width: 93vw;
-    top: 86px;
-  }
+  .logo { width: 50vw; height: auto; margin-top: 28px; }
+  .site-name { font-size: 1.6rem; }
+  .slogan { font-size: 1.1rem; }
+  .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
+  .watermark { width: 93vw; top: 86px; }
 }
