@@ -22,7 +22,7 @@ body {
 }
 .site-name {
   text-align: center;
-  font-size: 2.7rem;
+  font-size: 2.4rem;
   font-weight: bold;
   color: #fff;
   margin: 18px 0 20px 0;
@@ -40,12 +40,13 @@ body {
   display: flex;
   gap: 20px;
   z-index: 2;
+  margin-bottom: 24px;
 }
 .nav-btns a {
   background: #a01212;
   color: #fff;
   text-decoration: none;
-  padding: 16px 32px;
+  padding: 13px 28px;
   border-radius: 10px;
   font-size: 1.1rem;
   font-weight: bold;
@@ -55,11 +56,11 @@ body {
 .watermark {
   position: absolute;
   left: 50%;
-  top: 90px;
+  top: 85px;
   transform: translateX(-50%);
   opacity: 0.09;
-  width: 65vw;
-  max-width: 700px;
+  width: 70vw;
+  max-width: 750px;
   z-index: 1;
   pointer-events: none;
   user-select: none;
@@ -70,9 +71,54 @@ footer {
   text-align: center;
   background: rgba(178,34,34,0.88);
   color: #fff;
-  font-size: 0.93rem;
+  font-size: 0.92rem;
   margin-top: 40px;
   letter-spacing: 1px;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.gallery img {
+  width: 145px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: transform 0.25s cubic-bezier(.38,1.15,.6,1);
+  cursor: pointer;
+  background: #fff3;
+}
+.gallery img:hover {
+  transform: scale(1.17);
+  z-index: 2;
+}
+.courses-offered {
+  max-width: 800px;
+  margin: auto;
+  background: #fff2;
+  padding: 36px 20px 30px 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.courses-offered h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 18px;
+}
+.course-block {
+  background: #fff4;
+  border-radius: 10px;
+  padding: 18px 20px 14px 20px;
+  margin-bottom: 22px;
+  color: #fff;
+}
+.course-block a {
+  color: #fff;
+  text-decoration: underline;
 }
 @media (max-width: 600px) {
   .logo { width: 50vw; height: auto; margin-top: 28px; }
@@ -80,4 +126,7 @@ footer {
   .slogan { font-size: 1.1rem; }
   .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
   .watermark { width: 93vw; top: 86px; }
+  .gallery { gap: 10px; }
+  .gallery img { width: 38vw; height: 90px; }
+  .courses-offered { padding: 10px 3vw; }
 }
