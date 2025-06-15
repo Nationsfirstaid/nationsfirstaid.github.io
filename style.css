@@ -40,7 +40,7 @@ body {
   display: flex;
   gap: 20px;
   z-index: 2;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 }
 .nav-btns a {
   background: #a01212;
