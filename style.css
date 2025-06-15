@@ -108,6 +108,10 @@ footer {
   color: #fff;
 }
 
+.course-block a + a {
+  margin-left: 33px;
+}
+
 .course-block a {
   color: #fff;
   text-decoration: underline;
@@ -122,10 +126,6 @@ footer {
   color: #ffd700; /* Optional: makes hover pop even more */
   text-decoration: underline;
   z-index: 2;
-}
-
-.course-block a + a {
-  margin-left: 33px;
 }
 
 
