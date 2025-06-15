@@ -38,7 +38,7 @@ body {
   display: flex;
   gap: 20px;
   z-index: 2;
-  margin-bottom: 4px;
+  margin-bottom: 15px;
 }
 
 .nav-btns a {
@@ -98,7 +98,7 @@ footer {
 .courses-offered h2 {
   color: #fff;
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 .course-block {
   background: #fff4;
