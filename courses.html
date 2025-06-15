@@ -120,5 +120,22 @@
       All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator. Unauthorized reproduction, distribution, or commercial use is strictly prohibited. Use of Indigenous imagery and symbols is with respect for cultural significance and community tradition.
     </div>
   </footer>
+<script>
+function toggleBox(type) {
+  // Hide all boxes
+  document.querySelectorAll('.what-box').forEach(box => box.style.display = 'none');
+  // Remove "active" style from all buttons
+  document.querySelectorAll('.what-toggle').forEach(btn => btn.classList.remove('active'));
+  // Show selected box and set button active
+  document.getElementById('what-' + type).style.display = 'block';
+  event.target.classList.add('active');
+}
+// Optionally, open "Level A" by default
+window.addEventListener('DOMContentLoaded', function() {
+  toggleBox('a');
+});
+</script>
+
+    
 </body>
 </html>
