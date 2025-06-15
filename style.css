@@ -38,9 +38,9 @@ body {
 }
 .nav-btns {
   display: flex;
-  gap: 20px;
+  gap: 5px;
   z-index: 2;
-  margin-bottom: 8px;      /* much smaller gap under tabs */
+  margin-bottom: 3px;      /* much smaller gap under tabs */
 }
 .nav-btns a {
   background: #a01212;
