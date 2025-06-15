@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register – Nations First Aid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,39 +15,43 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="courses.html">Courses</a>
-      <a href="register.html" class="active">Register</a>
+      <a href="register.html">Register</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="slogan">Life-Saving Skills for Every Nation</div>
+    <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
+      <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Register for a Class</h2>
+      <form action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <label for="name">Full Name</label><br>
+        <input type="text" id="name" name="name" required style="width:100%;padding:8px;"><br><br>
+        <label for="email">Email Address</label><br>
+        <input type="email" id="email" name="email" required style="width:100%;padding:8px;"><br><br>
+        <label for="phone">Phone Number</label><br>
+        <input type="tel" id="phone" name="phone" style="width:100%;padding:8px;"><br><br>
+        <label for="course">Course Interested In</label><br>
+        <select id="course" name="course" style="width:100%;padding:8px;">
+          <option value="SFA Blended">Standard First Aid with CPR/AED Level C (Blended)</option>
+          <option value="EFA">Emergency First Aid with CPR/AED Level C</option>
+          <option value="CPR-C">CPR/AED Level C</option>
+          <option value="Recertification">Recertification</option>
+        </select><br><br>
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" rows="3" style="width:100%;padding:8px;"></textarea><br><br>
+        <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Submit Registration</button>
+      </form>
+      <br>
+      <div style="margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
+        We welcome both public and private group training requests.<br>
+        Classes and scheduling are emailed to students upon registration and request of date/certification needed.
+      </div>
+    </main>
   </div>
-  <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
-    <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Register for a Class</h2>
-    <form action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <label for="name">Full Name</label><br>
-      <input type="text" id="name" name="name" required style="width:100%;padding:8px;"><br><br>
-      <label for="email">Email Address</label><br>
-      <input type="email" id="email" name="email" required style="width:100%;padding:8px;"><br><br>
-      <label for="phone">Phone Number</label><br>
-      <input type="tel" id="phone" name="phone" style="width:100%;padding:8px;"><br><br>
-      <label for="course">Course Interested In</label><br>
-      <select id="course" name="course" style="width:100%;padding:8px;">
-        <option value="CPR/AED Level C">CPR/AED Level C</option>
-        <option value="SFA with CPR/AED Level C">SFA with CPR/AED Level C</option>
-        <option value="EFA with CPR/AED Level C">EFA with CPR/AED Level C</option>
-        <option value="MBFA">MBFA</option>
-        <option value="Recertification">Recertification</option>
-      </select><br><br>
-      <label for="message">Message</label><br>
-      <textarea id="message" name="message" rows="4" style="width:100%;padding:8px;"></textarea><br><br>
-      <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Submit Registration</button>
-    </form>
-    <br>
-    <div style="margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
-      Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#fff;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
-      Phone: 587-599-9355
-    </div>
-  </main>
   <footer>
-    &copy; 2025 Nations First Aid. All rights reserved.<br>
-   
+    <div class="disclaimer">
+      &copy; 2025 Nations First Aid. All rights reserved.<br>
+      All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator.<br>
+      Unauthorized reproduction, distribution, or commercial use is strictly prohibited. Use of Indigenous imagery and symbols is with respect for cultural significance and community tradition.
+    </div>
+  </footer>
+</body>
+</html>
