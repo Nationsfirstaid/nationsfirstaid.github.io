@@ -159,8 +159,59 @@ footer {
   text-decoration: underline;
 }
 
-
+.what-is-section {
+  max-width: 760px;
+  margin: 32px auto 32px auto;
+  background: #fff3;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 20px 16px 16px 16px;
+  text-align: center;
+}
+.what-is-section h2 {
+  color: #fff;
+  margin-bottom: 14px;
+}
+.what-is-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.what-toggle {
+  background: #a01212;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 22px;
+  font-size: 1.02rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.17s;
+  box-shadow: 0 2px 8px rgba(60,0,0,0.05);
+}
+.what-toggle:hover, .what-toggle.active {
+  background: #c0392b;
+  color: #ffd700;
+  transform: scale(1.09);
+}
+.what-box {
+  background: #fff8;
+  color: #910b0b;
+  margin: 18px auto 0 auto;
+  border-radius: 9px;
+  max-width: 620px;
+  font-size: 1.09rem;
+  line-height: 1.48;
+  padding: 18px 16px 14px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: none;
+  text-align: left;
+}
 @media (max-width: 600px) {
+  .what-is-row { flex-direction: column; gap: 10px; }
+  .what-box { font-size: 0.98rem; }
   .logo { width: 44vw; height: auto; margin-top: 20px; }
   .site-name { font-size: 1.1rem; }
   .nav-btns { flex-direction: column; width: 80vw; gap: 11px; }
