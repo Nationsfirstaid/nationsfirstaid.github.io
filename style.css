@@ -124,12 +124,10 @@ footer {
   z-index: 2;
 }
 
-.course-links a {
-  margin-right: 25px;  /* Add space to right of each link */
+.course-block a + a {
+  margin-left: 18px;
 }
-.course-links a:last-child {
-  margin-right: 0;     /* Remove margin from last link */
-}
+
 
 @media (max-width: 600px) {
   .logo { width: 50vw; height: auto; margin-top: 28px; }
