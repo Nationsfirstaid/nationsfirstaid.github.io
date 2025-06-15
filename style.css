@@ -25,14 +25,14 @@ body {
   font-size: 3.6rem;
   font-weight: bold;
   color: #fff;
-  margin: 18px 0 20px 0;
+  margin: 18px 0 10px 0;   /* reduced bottom margin */
   letter-spacing: 2px;
   text-shadow: 0 2px 8px #b2222255;
   z-index: 2;
 }
 .slogan {
   font-size: 1.1rem;
-  margin-bottom: 32px;
+  margin-bottom: 18px;      /* reduced from 32px */
   z-index: 2;
   text-align: center;
 }
@@ -40,7 +40,7 @@ body {
   display: flex;
   gap: 20px;
   z-index: 2;
-  margin-bottom: 3px;
+  margin-bottom: 8px;      /* much smaller gap under tabs */
 }
 .nav-btns a {
   background: #a01212;
@@ -58,7 +58,7 @@ body {
   left: 50%;
   top: 85px;
   transform: translateX(-50%);
-  opacity: 0.1;
+  opacity: 0.13; /* more visible watermark */
   width: 70vw;
   max-width: 750px;
   z-index: 1;
@@ -98,9 +98,9 @@ footer {
 }
 .courses-offered {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;           /* removes top margin, keeps centered */
   background: #fff2;
-  padding: 36px 20px 30px 20px;
+  padding: 24px 20px 30px 20px; /* reduced top padding */
   border-radius: 14px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
@@ -120,12 +120,19 @@ footer {
   color: #fff;
   text-decoration: underline;
 }
+
+/* General fix for ANY content block to reduce margin top */
+main, .main-content, .about-header, .courses-offered {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 @media (max-width: 600px) {
   .logo { width: 50vw; height: auto; margin-top: 28px; }
-  .site-name { font-size: 1.6rem; }
-  .slogan { font-size: 1.1rem; }
-  .nav-btns { flex-direction: column; width: 80vw; gap: 12px; }
-  .watermark { width: 93vw; top: 86px; }
+  .site-name { font-size: 1.6rem; margin-bottom: 7px; }
+  .slogan { font-size: 1.1rem; margin-bottom: 9px; }
+  .nav-btns { flex-direction: column; width: 80vw; gap: 7px; margin-bottom: 5px; }
+  .watermark { width: 93vw; top: 66px; }
   .gallery { gap: 10px; }
   .gallery img { width: 38vw; height: 90px; }
   .courses-offered { padding: 10px 3vw; }
