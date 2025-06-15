@@ -131,7 +131,7 @@ main, .main-content, .about-header, .courses-offered {
   .logo { width: 50vw; height: auto; margin-top: 28px; }
   .site-name { font-size: 1.6rem; margin-bottom: 7px; }
   .slogan { font-size: 1.1rem; margin-bottom: 9px; }
-  .nav-btns { flex-direction: column; width: 80vw; gap: 7px; margin-bottom: 5px; }
+  .nav-btns { flex-direction: column; width: 80vw; gap: 7px; margin-bottom: 2px; }
   .watermark { width: 93vw; top: 66px; }
   .gallery { gap: 10px; }
   .gallery img { width: 38vw; height: 90px; }
