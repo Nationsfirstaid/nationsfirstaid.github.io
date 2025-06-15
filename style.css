@@ -128,22 +128,37 @@ footer {
   gap: 12px;
 }
 
+/* Small button style for links in course-actions */
 .course-actions a {
   color: #fff;
-  text-decoration: underline;
-  font-size: 1.07rem;
-  transition: transform 0.17s cubic-bezier(.42,1.4,.4,1), box-shadow 0.16s;
-  display: inline-block;
-  box-shadow: none;
+  background: #a01212;
+  border-radius: 7px;
+  text-decoration: none;
+  padding: 8px 18px;
+  font-size: 0.98rem;
   font-weight: bold;
+  margin: 0 2px;
+  border: none;
+  display: inline-block;
+  transition: background 0.22s, transform 0.18s, box-shadow 0.14s;
+  box-shadow: none;
 }
 
 .course-actions a:hover {
-  transform: scale(1.17);
-  box-shadow: 0 2px 10px rgba(50,0,0,0.14);
+  background: #c0392b;
   color: #ffd700;
-  z-index: 2;
+  transform: scale(1.13);
+  box-shadow: 0 2px 8px rgba(50,0,0,0.13);
+  text-decoration: underline;
 }
+
+.what-link:hover {
+  background: #c0392b;
+  color: #ffd700;
+  transform: scale(1.13);
+  text-decoration: underline;
+}
+
 
 @media (max-width: 600px) {
   .logo { width: 44vw; height: auto; margin-top: 20px; }
