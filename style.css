@@ -60,7 +60,7 @@ body {
   left: 50%;
   top: 60px;
   transform: translateX(-50%);
-  opacity: 0.5;
+  opacity: 0.33;
   width: 48vw;
   max-width: 440px;
   z-index: 1;
