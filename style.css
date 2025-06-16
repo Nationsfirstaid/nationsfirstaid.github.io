@@ -35,7 +35,7 @@ body {
   display: flex;
   gap: 20px;
   z-index: 2;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 .nav-btns a {
   background: #a01212;
