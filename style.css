@@ -28,7 +28,9 @@ img {
 }
 .logo {
   width: 200px;
-  margin: 0 auto;
+  height: auto;
+  display: block;
+  margin: 20px auto 10px auto;
   z-index: 2;
 }
 .site-name {
@@ -246,6 +248,7 @@ footer {
 @media (max-width: 700px) {
   .logo {
     width: 40vw;
+    margin: 10px auto;
   }
   .nav-btns {
     flex-direction: column;
