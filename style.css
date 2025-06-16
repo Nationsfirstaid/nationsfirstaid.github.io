@@ -37,9 +37,12 @@ img {
 .site-name {
   font-size: 2rem;
   font-weight: bold;
-  margin: 12px 0;
+  margin: 12px auto;
   letter-spacing: 1.5px;
   text-shadow: 0 2px 6px #b2222255;
+  text-align: center;
+  display: block;
+  width: fit-content;
 }
 .watermark {
   position: absolute;
