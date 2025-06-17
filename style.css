@@ -89,7 +89,7 @@ img {
 .image-row {
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap:   0px;
   margin: 12px auto 24px auto;
   flex-wrap: wrap;
 }
