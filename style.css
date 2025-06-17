@@ -89,10 +89,11 @@ img {
 .image-row {
   display: flex;
   justify-content: center;
-  gap:   30px;
-  margin: 12px auto 24px auto;
+  gap: 22px;
+  margin: 24px auto 24px auto; /* Top margin = 24px, just below the slogan */
   flex-wrap: wrap;
 }
+
 .image-row figure {
   display: flex;
   flex-direction: column;
