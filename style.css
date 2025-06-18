@@ -90,7 +90,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 22px;
-  margin: 24px auto 24px auto; /* Top margin = 24px, just below the slogan */
+  margin: 100px auto 24px auto; /* Top margin = 24px, just below the slogan */
   flex-wrap: wrap;
 }
 
