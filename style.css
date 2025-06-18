@@ -1,4 +1,6 @@
-/* ===== Reset & Base Styles ===== */
+
+
+/* ===== Universal Reset & Base Styles ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -90,10 +92,9 @@ img {
   display: flex;
   justify-content: center;
   gap: 22px;
-  margin: 100px auto 24px auto; /* Top margin = 24px, just below the slogan */
+  margin: 24px auto 24px auto; /* Top margin matches courses */
   flex-wrap: wrap;
 }
-
 .image-row figure {
   display: flex;
   flex-direction: column;
@@ -107,9 +108,13 @@ img {
   transition: transform 0.18s, box-shadow 0.18s;
   cursor: pointer;
 }
-.image-row img:hover {
+.image-row img:hover,
+.image-row img:focus,
+.image-row img.enlarged {
   transform: scale(1.35);
   box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  z-index: 10;
+  outline: none;
 }
 .image-row figcaption {
   margin-top: 7px;
@@ -118,113 +123,35 @@ img {
   text-align: center;
 }
 
-/* ===== Main Content & Courses ===== */
+/* ===== Main Content: About & Courses ===== */
 main {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px 16px 36px 16px;
 }
-.courses-offered {
-  max-width: 800px;
-  margin: 8px auto 0 auto;
-  background: #fff2;
-  padding: 36px 20px 30px 20px;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+.about-section {
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: 32px 28px 24px 28px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
-.courses-offered h2 {
+.about-section h2 {
   color: #fff;
   text-align: center;
-  margin-bottom: 22px;
-}
-.course-block {
-  background: #fff4;
-  border-radius: 10px;
-  padding: 18px 20px 12px 20px;
-  margin-bottom: 22px;
-  color: #fff;
-  font-size: 1.08rem;
-}
-.course-block b {
-  font-size: 1.12rem;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 2rem;
   letter-spacing: 1px;
 }
-.course-price {
-  color: #ffe680;
-  font-weight: bold;
-}
-.course-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 12px;
-  gap: 12px;
-}
-.course-actions a {
-  color: #fff;
-  background: #a01212;
-  border-radius: 7px;
-  text-decoration: none;
-  padding: 8px 18px;
-  font-size: 0.98rem;
-  font-weight: bold;
-  margin: 0 2px;
-  border: none;
-  display: inline-block;
-  transition: background 0.22s, transform 0.18s, box-shadow 0.14s;
-  box-shadow: none;
-}
-.course-actions a:hover {
-  background: #c0392b;
-  color: #ffd700;
-  transform: scale(1.13);
-  box-shadow: 0 2px 8px rgba(50,0,0,0.13);
-  text-decoration: underline;
-}
-
-/* ===== Accordion (What Is Section) ===== */
-.what-is-section {
-  max-width: 760px;
-  margin: 32px auto 32px auto;
-  background: #fff3;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  padding: 20px 16px 16px 16px;
-  text-align: center;
-}
-.what-is-section h2 {
-  color: #fff;
-  margin-bottom: 14px;
-}
-.accordion-toggle {
-  background: #a01212;
-  color: #fff;
-  cursor: pointer;
-  padding: 12px 20px;
-  width: 100%;
-  border: none;
-  border-radius: 8px;
-  text-align: left;
-  font-size: 1.05rem;
-  font-weight: bold;
-  margin: 10px 0 5px;
-  transition: background 0.3s ease;
-}
-.accordion-toggle:hover {
-  background: #c0392b;
-  color: #ffd700;
-}
-.accordion-content {
-  display: none;
-  background: #fff8;
-  color: #900b0b;
-  padding: 14px 16px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.accordion-content.open {
-  display: block;
+.about-section blockquote {
+  margin: 30px auto;
+  font-style: italic;
+  font-size: 1.13rem;
+  color: #ffdede;
+  border-left: 4px solid #fff;
+  padding-left: 18px;
+  background: none;
 }
 
 /* ===== Footer ===== */
@@ -251,10 +178,9 @@ footer {
   .site-name { font-size: 1.1rem; }
   .nav-btns { flex-direction: column; width: 80vw; gap: 11px; }
   .watermark { width: 85vw; max-width: 94vw; top: 82px; }
-  .courses-offered { padding: 10px 2vw; }
-  .course-block { font-size: 1rem; }
-  .course-actions { flex-direction: column; align-items: stretch; gap: 14px; }
-  .image-row { gap: 12px; }
+  main { padding: 8px 2vw 24px 2vw; }
+  .about-section { padding: 16px 8px 14px 8px; }
+  .image-row { gap: 12px; margin: 18px auto 16px auto; }
   .image-row figure { width: 80px; }
   .image-row img { width: 60px; }
 }
