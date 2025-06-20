@@ -138,7 +138,7 @@ img {
 }
 
 .image-row img:hover {
-  transform: scale(1.35);
+  transform: scale(1.75);
   box-shadow: 0 4px 16px rgba(0,0,0,0.22);
 }
 
