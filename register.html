@@ -138,20 +138,41 @@
 
   </footer> 
 
-  <script> 
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const today = new Date();
 
-    // Auto-set today's date as the default for the start-date field 
+    const sixMonthsLater = new Date();
+    sixMonthsLater.setMonth(today.getMonth() + 6);
 
-    document.addEventListener("DOMContentLoaded", function() { 
+    const oneYearLater = new Date();
+    oneYearLater.setFullYear(today.getFullYear() + 1);
 
-      var today = new Date().toISOString().split('T')[0]; 
+    function formatDate(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
 
-      document.getElementById('start-date').value = today; 
+    const startDate = document.getElementById('start-date');
+    const endDate = document.getElementById('end-date');
 
-    }); 
+    const todayStr = formatDate(today);
+    const sixMonthsStr = formatDate(sixMonthsLater);
+    const oneYearStr = formatDate(oneYearLater);
 
-  </script> 
+    // Set limits for start date
+    startDate.min = todayStr;
+    startDate.max = sixMonthsStr;
+    startDate.value = todayStr;
 
+    // Set limits for end date
+    endDate.min = todayStr;
+    endDate.max = oneYearStr;
+    endDate.value = oneYearStr;
+  });
+</script>
 </body> 
 
 </html> 
