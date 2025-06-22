@@ -1,7 +1,7 @@
-/* ===== Reset & Base Styles ===== */
-
+/* ===== Import Fonts ===== */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu&display=swap');
 
+/* ===== Reset & Base Styles ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -113,7 +113,36 @@ img {
   user-select: none;
 }
 
-/* ===== Image Preview Row ===== */
+/* ===== About Page Section ===== */
+.about-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 24px;
+  font-size: 1.05rem;
+}
+
+.about-section h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.about-section p {
+  margin-bottom: 18px;
+}
+
+.about-section blockquote {
+  margin: 30px auto;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #ffdede;
+  border-left: 4px solid #fff;
+  padding-left: 18px;
+}
+
+/* ===== Image Gallery Section ===== */
 .image-row {
   display: flex;
   justify-content: center;
@@ -149,7 +178,7 @@ img {
   text-align: center;
 }
 
-/* ===== Main Content & Courses ===== */
+/* ===== Courses Section ===== */
 main {
   max-width: 1000px;
   margin: 0 auto;
@@ -221,7 +250,7 @@ main {
   text-decoration: underline;
 }
 
-/* ===== Accordion (What Is Section) ===== */
+/* ===== Accordion / What Is Section ===== */
 .what-is-section {
   max-width: 760px;
   margin: 32px auto;
@@ -292,14 +321,61 @@ footer {
 
 /* ===== Mobile Responsiveness ===== */
 @media (max-width: 600px) {
-  .logo { width: 44vw; height: auto; margin-top: 20px; }
-  .site-name { font-size: 1.4rem; }
-  .nav-btns { flex-direction: column; width: 80vw; gap: 11px; }
-  .watermark { width: 85vw; max-width: 94vw; top: 82px; }
-  .courses-offered { padding: 10px 2vw; }
-  .course-block { font-size: 1rem; }
-  .course-actions { flex-direction: column; align-items: stretch; gap: 14px; }
-  .image-row { gap: 12px; }
-  .image-row figure { width: 80px; }
-  .image-row img { width: 60px; }
+  .logo {
+    width: 44vw;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .site-name {
+    font-size: 1.4rem;
+  }
+
+  .nav-btns {
+    flex-direction: column;
+    width: 80vw;
+    gap: 11px;
+  }
+
+  .watermark {
+    width: 85vw;
+    max-width: 94vw;
+    top: 82px;
+  }
+
+  .courses-offered {
+    padding: 10px 2vw;
+  }
+
+  .course-block {
+    font-size: 1rem;
+  }
+
+  .course-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .image-row {
+    gap: 12px;
+  }
+
+  .image-row figure {
+    width: 80px;
+  }
+
+  .image-row img {
+    width: 60px;
+  }
+
+  .about-section {
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .about-section blockquote {
+    font-size: 1rem;
+    padding-left: 12px;
+  }
 }
