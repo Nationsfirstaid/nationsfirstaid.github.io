@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +52,7 @@
         <input type="date" id="start-date" name="start-date" required style="width:100%;padding:8px;"><br><br>
 
         <label for="end-date">Desired Certification By</label><br>
-        <input type="date" id="end-date" name="end-date" required style="width:100%;padding:8px;"><br><br>
+        <input type="date" id="end-date" name="end-date" required style="width:100%;padding:8px;" readonly><br><br>
 
         <label for="message">Message</label><br>
         <textarea id="message" name="message" rows="3" required style="width:100%;padding:8px;"></textarea><br><br>
@@ -77,12 +78,12 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const today = new Date();
-      const sixtyDaysLater = new Date(today);
-      sixtyDaysLater.setDate(today.getDate() + 60);
+      const startDateInput = document.getElementById("start-date");
+      const endDateInput = document.getElementById("end-date");
 
-      const oneYearLater = new Date(today);
-      oneYearLater.setFullYear(today.getFullYear() + 1);
+      const today = new Date();
+      const twoMonthsLater = new Date(today);
+      twoMonthsLater.setDate(today.getDate() + 60);
 
       function formatDate(date) {
         const year = date.getFullYear();
@@ -91,19 +92,33 @@
         return `${year}-${month}-${day}`;
       }
 
-      document.getElementById('start-date').min = formatDate(today);
-      document.getElementById('start-date').max = formatDate(sixtyDaysLater);
-      document.getElementById('start-date').value = formatDate(today);
+      // Set limits on start date
+      startDateInput.min = formatDate(today);
+      startDateInput.max = formatDate(twoMonthsLater);
+      startDateInput.value = formatDate(today);
 
-      document.getElementById('end-date').min = formatDate(today);
-      document.getElementById('end-date').max = formatDate(oneYearLater);
-      document.getElementById('end-date').value = formatDate(oneYearLater);
+      // Set initial end date to 60 days from start date
+      function updateEndDate() {
+        const selectedStart = new Date(startDateInput.value);
+        const certDate = new Date(selectedStart);
+        certDate.setDate(certDate.getDate() + 60);
+        endDateInput.value = formatDate(certDate);
+        endDateInput.min = formatDate(certDate);
+        endDateInput.max = formatDate(certDate);
+      }
 
+      // Update on load
+      updateEndDate();
+
+      // Update end date when start date changes
+      startDateInput.addEventListener("change", updateEndDate);
+
+      // Basic honeypot bot protection
       document.getElementById("registerForm").addEventListener("submit", function (e) {
         const honeypot = document.querySelector("input[name='honeypot']").value;
         if (honeypot !== "") {
           e.preventDefault();
-          alert("Bot submission detected.");
+          alert("Bot submission blocked.");
         }
       });
     });
