@@ -5,8 +5,7 @@
   <title>Register – Nations First Aid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="center">
@@ -78,55 +77,39 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCH2Leufmxtgtgay3nfR4zAysKTjBeZvUE",
-  authDomain: "nationsfirstaid-19c03.firebaseapp.com",
-  projectId: "nationsfirstaid-19c03",
-  storageBucket: "nationsfirstaid-19c03.firebasestorage.app",
-  messagingSenderId: "675526770768",
-  appId: "1:675526770768:web:6ebea9cc53b105e6fd1155",
-  measurementId: "G-6PNRL98C2X"
-};
+    const SUPABASE_URL = "https://hhyltxeexskvugbwrrlkb.supabase.co";  // Replace with your actual Supabase URL
+    const SUPABASE_KEY = "YOUR_ANON_PUBLIC_KEY_HERE";  // Replace with your anon/public API key
 
-      firebase.initializeApp(firebaseConfig);
-      const auth = firebase.auth();
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-      const actionCodeSettings = {
-        url: "https://nationsfirstaid.github.io/register.html",
-        handleCodeInApp: true
-      };
+    document.addEventListener("DOMContentLoaded", async () => {
+      const { data: { session } } = await supabase.auth.getSession();
 
-      document.getElementById("send-link-btn").addEventListener("click", () => {
+      if (session) {
+        document.getElementById("email-auth-section").style.display = "none";
+        document.getElementById("regForm").style.display = "block";
+        document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
+        document.getElementById("success-msg").style.display = "block";
+      }
+
+      document.getElementById("send-link-btn").addEventListener("click", async () => {
         const email = document.getElementById("auth-email").value;
         if (!email) return alert("Please enter your email.");
-        auth.sendSignInLinkToEmail(email, actionCodeSettings)
-          .then(() => {
-            window.localStorage.setItem("emailForSignIn", email);
-            document.getElementById("email-message").innerText = "✅ Check your inbox for the login link.";
-          })
-          .catch((error) => {
-            document.getElementById("email-message").innerText = "Error: " + error.message;
-          });
-      });
 
-      if (auth.isSignInWithEmailLink(window.location.href)) {
-        let email = window.localStorage.getItem("emailForSignIn");
-        if (!email) {
-          email = window.prompt("Please confirm your email to complete sign-in");
+        const { error } = await supabase.auth.signInWithOtp({
+          email,
+          options: {
+            emailRedirectTo: "https://nationsfirstaid.com/register.html"
+          }
+        });
+
+        if (error) {
+          document.getElementById("email-message").innerText = "Error: " + error.message;
+        } else {
+          document.getElementById("email-message").innerText = "✅ Check your inbox for the login link.";
+          window.localStorage.setItem("emailForSignIn", email);
         }
-        auth.signInWithEmailLink(email, window.location.href)
-          .then(() => {
-            document.getElementById("email-auth-section").style.display = "none";
-            document.getElementById("regForm").style.display = "block";
-            document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
-            document.getElementById("success-msg").style.display = "block";
-          })
-          .catch((error) => {
-            console.error("Sign-in error:", error);
-          });
-      }
+      });
 
       // Handle date range logic
       const start = document.getElementById("start-date");
