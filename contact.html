@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
   <div class="center">
     <img class="watermark" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />
@@ -24,31 +25,12 @@
     <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
       <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Contact</h2>
 
-      <!-- Email Login -->
-      <div id="email-auth-section">
-        <label for="auth-email" style="color:#fff;">Enter your Email Address</label><br>
-        <input type="email" id="auth-email" style="width:100%;padding:8px;" required><br><br>
-        <button id="send-link-btn" type="button" style="width:100%;padding:10px;">Get Link to Send Message</button>
-        <p id="email-message" style="color:#fff; margin-top:10px;"></p>
+      <div id="contact-auth-section">
+        <label for="contact-email">Enter your Email Address</label><br>
+        <input type="email" id="contact-email" style="width:100%;padding:8px;" required><br><br>
+        <button id="send-contact-link-btn" type="button" style="width:100%;padding:10px;">Get Link to Send Message</button>
+        <p id="contact-email-message" style="color:#fff; margin-top:10px;"></p>
       </div>
-
-      <!-- Message Form -->
-      <form id="contactForm" action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST" style="display:none;">
-        <input type="hidden" name="_captcha" value="false">
-
-        <label for="name">Full Name</label><br>
-        <input type="text" id="name" name="name" required style="width:100%;padding:8px;"><br><br>
-
-        <label for="email">Email Address</label><br>
-        <input type="email" id="email" name="email" required style="width:100%;padding:8px;"><br><br>
-
-        <label for="message">Message</label><br>
-        <textarea id="message" name="message" rows="3" style="width:100%;padding:8px;"></textarea><br><br>
-
-        <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Send Message</button>
-      </form>
-
-      <div id="success-msg" style="color:lightgreen; display:none; margin-top: 20px; text-align:center;"></div>
 
       <div style="margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
         Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#fff;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
@@ -66,25 +48,14 @@
   </footer>
 
   <script>
-    const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co"; // Your Supabase URL
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk"; // Replace with your actual Supabase anon key
+    const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
+
     const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    document.addEventListener("DOMContentLoaded", async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-
-      if (session) {
-        document.getElementById("email-auth-section").style.display = "none";
-        document.getElementById("contactForm").style.display = "block";
-        document.getElementById("success-msg").innerText = "✅ Verified! Please leave us a message.";
-        document.getElementById("success-msg").style.display = "block";
-
-        const userEmail = session.user.email;
-        document.getElementById("email").value = userEmail;
-      }
-
-      document.getElementById("send-link-btn").addEventListener("click", async () => {
-        const email = document.getElementById("auth-email").value;
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("send-contact-link-btn").addEventListener("click", async () => {
+        const email = document.getElementById("contact-email").value;
         if (!email) return alert("Please enter your email.");
 
         const { error } = await supabase.auth.signInWithOtp({
@@ -94,11 +65,14 @@
           }
         });
 
+        const message = document.getElementById("contact-email-message");
         if (error) {
-          document.getElementById("email-message").innerText = "Error: " + error.message;
+          message.innerText = "Error: " + error.message;
+          message.style.color = "salmon";
         } else {
-          document.getElementById("email-message").innerHTML = "✅ Check your inbox for the login link.";
-          window.localStorage.setItem("emailForSignIn", email);
+          message.innerText = "✅ Check your inbox for the login link.";
+          message.style.color = "lightgreen";
+          localStorage.setItem("emailForContact", email);
         }
       });
     });
