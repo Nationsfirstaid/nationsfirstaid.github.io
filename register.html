@@ -18,14 +18,14 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="courses.html">Courses</a>
-      <a href="register.html">Register</a>
+      <a href="register.html" class="active">Register</a>
       <a href="contact.html">Contact</a>
     </div>
 
     <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
       <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Register for a Class</h2>
 
-      <!-- Email Auth Section -->
+      <!-- Email Authentication -->
       <div id="email-auth-section">
         <label for="auth-email">Enter your Email Address</label><br>
         <input type="email" id="auth-email" style="width:100%;padding:8px;" required><br><br>
@@ -33,7 +33,7 @@
         <p id="email-message" style="color:#fff; margin-top:10px;"></p>
       </div>
 
-      <!-- Full form (initially hidden) -->
+      <!-- Full Registration Form -->
       <form id="regForm" action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST" style="display:none;">
         <input type="hidden" name="_captcha" value="false">
 
@@ -78,40 +78,38 @@
   </footer>
 
   <script>
-    // ✅ LIVE CONFIG
-    const firebaseConfig = {
-      apiKey: "AIzaSyCH2Leufmxtgtgay3nFr4zAysKTjBeZvUE",
-      authDomain: "nationsfirstaid-19c03.firebaseapp.com",
-      projectId: "nationsfirstaid-19c03",
-      storageBucket: "nationsfirstaid-19c03.appspot.com",
-      messagingSenderId: "6755526770768",
-      appId: "1:6755526770768:web:6ebea9cc53b105e6fd1155",
-      measurementId: "G-6PNRL98C2X"
-    };
+    document.addEventListener("DOMContentLoaded", () => {
+      const firebaseConfig = {
+        apiKey: "AIzaSyCH2Leufmxtgtgay3nFr4zAysKTjBeZvUE",
+        authDomain: "nationsfirstaid-19c03.firebaseapp.com",
+        projectId: "nationsfirstaid-19c03",
+        storageBucket: "nationsfirstaid-19c03.appspot.com",
+        messagingSenderId: "6755526770768",
+        appId: "1:6755526770768:web:6ebea9cc53b105e6fd1155",
+        measurementId: "G-6PNRL98C2X"
+      };
 
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
 
-    const actionCodeSettings = {
-      url: "https://nationsfirstaid.github.io/register.html",
-      handleCodeInApp: true
-    };
+      const actionCodeSettings = {
+        url: "https://nationsfirstaid.github.io/register.html",
+        handleCodeInApp: true
+      };
 
-    document.getElementById("send-link-btn").addEventListener("click", () => {
-      const email = document.getElementById("auth-email").value;
-      if (!email) return alert("Please enter your email.");
-      auth.sendSignInLinkToEmail(email, actionCodeSettings)
-        .then(() => {
-          window.localStorage.setItem("emailForSignIn", email);
-          document.getElementById("email-message").innerText = "✅ Check your inbox for the login link.";
-        })
-        .catch((error) => {
-          document.getElementById("email-message").innerText = "Error: " + error.message;
-        });
-    });
+      document.getElementById("send-link-btn").addEventListener("click", () => {
+        const email = document.getElementById("auth-email").value;
+        if (!email) return alert("Please enter your email.");
+        auth.sendSignInLinkToEmail(email, actionCodeSettings)
+          .then(() => {
+            window.localStorage.setItem("emailForSignIn", email);
+            document.getElementById("email-message").innerText = "✅ Check your inbox for the login link.";
+          })
+          .catch((error) => {
+            document.getElementById("email-message").innerText = "Error: " + error.message;
+          });
+      });
 
-    // Complete sign-in if coming from email link
-    window.addEventListener("DOMContentLoaded", () => {
       if (auth.isSignInWithEmailLink(window.location.href)) {
         let email = window.localStorage.getItem("emailForSignIn");
         if (!email) {
@@ -128,14 +126,12 @@
             console.error("Sign-in error:", error);
           });
       }
-    });
 
-    // Set up date logic
-    document.addEventListener("DOMContentLoaded", () => {
+      // Handle date range logic
       const start = document.getElementById("start-date");
       const end = document.getElementById("end-date");
       const today = new Date();
-      const plus60 = new Date();
+      const plus60 = new Date(today);
       plus60.setDate(today.getDate() + 60);
 
       function fmt(d) {
@@ -155,7 +151,7 @@
         end.value = fmt(max);
       });
 
-      start.dispatchEvent(new Event('change'));
+      start.dispatchEvent(new Event("change"));
     });
   </script>
 </body>
