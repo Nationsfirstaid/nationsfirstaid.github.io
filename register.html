@@ -25,7 +25,7 @@
     <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
       <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Register for a Class</h2>
 
-      <!-- Email Link Login Section -->
+      <!-- Email Auth Section -->
       <div id="email-auth-section">
         <label for="auth-email">Enter your Email Address</label><br>
         <input type="email" id="auth-email" style="width:100%;padding:8px;" required><br><br>
@@ -33,7 +33,7 @@
         <p id="email-message" style="color:#fff; margin-top:10px;"></p>
       </div>
 
-      <!-- Hidden full form after verification -->
+      <!-- Full form (initially hidden) -->
       <form id="regForm" action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST" style="display:none;">
         <input type="hidden" name="_captcha" value="false">
 
@@ -46,7 +46,7 @@
         <label for="course">Course Interested In</label><br>
         <select id="course" name="course" required style="width:100%;padding:8px;">
           <option value="">-- Select a course --</option>
-          <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid (SFA) – 2 day</option>
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid – 2 day</option>
           <option value="Standard First Aid (SFA) with CPR/AED Level C – Blended">SFA – Blended</option>
           <option value="Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION">SFA – Recert</option>
           <option value="Emergency First Aid (EFA) with CPR/AED Level C">Emergency First Aid</option>
@@ -73,39 +73,37 @@
   <footer>
     <div class="disclaimer">
       &copy; 2025 Nations First Aid. All rights reserved.<br>
-      All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator.
+      All content is the property of Nations First Aid and its creator.
     </div>
   </footer>
 
   <script>
-    // Firebase Config
+    // ✅ LIVE CONFIG
     const firebaseConfig = {
       apiKey: "AIzaSyCH2Leufmxtgtgay3nFr4zAysKTjBeZvUE",
       authDomain: "nationsfirstaid-19c03.firebaseapp.com",
       projectId: "nationsfirstaid-19c03",
       storageBucket: "nationsfirstaid-19c03.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      messagingSenderId: "6755526770768",
+      appId: "1:6755526770768:web:6ebea9cc53b105e6fd1155",
+      measurementId: "G-6PNRL98C2X"
     };
 
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // Action link URL (your GitHub page)
     const actionCodeSettings = {
       url: "https://nationsfirstaid.github.io/register.html",
       handleCodeInApp: true
     };
 
-    // Send Sign-In Email
     document.getElementById("send-link-btn").addEventListener("click", () => {
       const email = document.getElementById("auth-email").value;
-      if (!email) return alert("Please enter your email first.");
+      if (!email) return alert("Please enter your email.");
       auth.sendSignInLinkToEmail(email, actionCodeSettings)
         .then(() => {
           window.localStorage.setItem("emailForSignIn", email);
-          document.getElementById("email-message").innerText = "Sign-in link sent! Check your inbox.";
+          document.getElementById("email-message").innerText = "✅ Check your inbox for the login link.";
         })
         .catch((error) => {
           document.getElementById("email-message").innerText = "Error: " + error.message;
@@ -123,16 +121,16 @@
           .then(() => {
             document.getElementById("email-auth-section").style.display = "none";
             document.getElementById("regForm").style.display = "block";
-            document.getElementById("success-msg").innerText = "✅ Email verified! Please complete your registration.";
+            document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
             document.getElementById("success-msg").style.display = "block";
           })
           .catch((error) => {
-            console.error("Error signing in with link", error);
+            console.error("Sign-in error:", error);
           });
       }
     });
 
-    // Date limit logic
+    // Set up date logic
     document.addEventListener("DOMContentLoaded", () => {
       const start = document.getElementById("start-date");
       const end = document.getElementById("end-date");
