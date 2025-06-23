@@ -32,7 +32,7 @@
         <p id="contact-email-message" style="color:#fff; margin-top:10px;"></p>
       </div>
 
-      <div style="margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
+      <div id="contact-info" style="display:none; margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
         Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#fff;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
         Phone: 587-599-9355
       </div>
@@ -54,7 +54,15 @@
     const { createClient } = supabase;
     const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", async () => {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+
+      if (session && session.user) {
+        // User is already verified
+        document.getElementById("contact-auth-section").style.display = "none";
+        document.getElementById("contact-info").style.display = "block";
+      }
+
       document.getElementById("send-contact-link-btn").addEventListener("click", async () => {
         const email = document.getElementById("contact-email").value;
         if (!email) return alert("Please enter your email.");
