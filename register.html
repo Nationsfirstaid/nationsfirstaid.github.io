@@ -36,51 +36,41 @@
         <label for="phone">Phone Number</label><br>
         <input type="tel" id="phone" name="phone" required style="width:100%;padding:8px;"><br><br>
 
+        <!-- Verification Section -->
         <div id="verification-section">
-  <label for="send-code-btn">Verify Phone Number</label><br>
-  <button type="button" id="send-code-btn" style="margin-top: 6px; padding: 6px 12px;">Send Code</button><br><br>
+          <label>Verify Phone Number</label><br>
+          <button type="button" id="send-code-btn" style="margin-top: 6px; padding: 6px 12px;">Send Code</button><br><br>
 
-  <div id="code-box" style="display:none;">
-    <label for="code-input">Enter 4-digit Code</label><br>
-    <input type="text" id="code-input" maxlength="4" style="width:100%;padding:8px;" /><br><br>
-    <button type="button" id="verify-btn" style="padding: 6px 12px;">Verify Code</button>
-    <p id="code-status" style="color:#fff; margin-top: 10px;"></p>
-  </div>
-</div>
+          <div id="code-box" style="display:none;">
+            <label for="code-input">Enter 4-digit Code</label><br>
+            <input type="text" id="code-input" maxlength="4" style="width:100%;padding:8px;" /><br><br>
+            <button type="button" id="verify-btn" style="padding: 6px 12px;">Verify Code</button>
+            <p id="code-status" style="color:#fff; margin-top: 10px;"></p>
+          </div>
+        </div>
 
-<div id="course-section" style="display:none;">
-  <label for="course">Course Interested In</label><br>
-  <select id="course" name="course" required style="width:100%;padding:8px;">
-    <option value="">-- Select a course --</option>
-    <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid (SFA) with CPR/AED Level C – 2 day</option>
-    <option value="Standard First Aid (SFA) with CPR/AED Level C – Blended">Standard First Aid (SFA) with CPR/AED Level C – Blended</option>
-    <option value="Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION">Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION</option>
-    <option value="Emergency First Aid (EFA) with CPR/AED Level C">Emergency First Aid (EFA) with CPR/AED Level C</option>
-    <option value="Marine Basic First Aid (MBFA)">Marine Basic First Aid (MBFA)</option>
-    <option value="CPR/AED Level C">CPR/AED Level C</option>
-  </select><br><br>
-</div>
+        <!-- Course and remaining form: hidden until code is verified -->
+        <div id="course-section" style="display:none;">
+          <label for="course">Course Interested In</label><br>
+          <select id="course" name="course" required style="width:100%;padding:8px;">
+            <option value="">-- Select a course --</option>
+            <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid (SFA) with CPR/AED Level C – 2 day</option>
+            <option value="Standard First Aid (SFA) with CPR/AED Level C – Blended">Standard First Aid (SFA) with CPR/AED Level C – Blended</option>
+            <option value="Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION">Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION</option>
+            <option value="Emergency First Aid (EFA) with CPR/AED Level C">Emergency First Aid (EFA) with CPR/AED Level C</option>
+            <option value="Marine Basic First Aid (MBFA)">Marine Basic First Aid (MBFA)</option>
+            <option value="CPR/AED Level C">CPR/AED Level C</option>
+          </select><br><br>
 
+          <label for="start-date">Preferred Start Date</label><br>
+          <input type="date" id="start-date" name="start-date" required style="width:100%;padding:8px;"><br><br>
 
-        <label for="course">Course Interested In</label><br>
-        <select id="course" name="course" required style="width:100%;padding:8px;">
-          <option value="">-- Select a course --</option>
-          <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid (SFA) with CPR/AED Level C – 2 day</option>
-          <option value="Standard First Aid (SFA) with CPR/AED Level C – Blended">Standard First Aid (SFA) with CPR/AED Level C – Blended</option>
-          <option value="Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION">Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION</option>
-          <option value="Emergency First Aid (EFA) with CPR/AED Level C">Emergency First Aid (EFA) with CPR/AED Level C</option>
-          <option value="Marine Basic First Aid (MBFA)">Marine Basic First Aid (MBFA)</option>
-          <option value="CPR/AED Level C">CPR/AED Level C</option>
-        </select><br><br>
+          <label for="end-date">Desired Certification By</label><br>
+          <input type="date" id="end-date" name="end-date" required style="width:100%;padding:8px;"><br><br>
 
-        <label for="start-date">Preferred Start Date</label><br>
-        <input type="date" id="start-date" name="start-date" required style="width:100%;padding:8px;"><br><br>
-
-        <label for="end-date">Desired Certification By</label><br>
-        <input type="date" id="end-date" name="end-date" required style="width:100%;padding:8px;"><br><br>
-
-        <label for="message">Message</label><br>
-        <textarea id="message" name="message" rows="3" required style="width:100%;padding:8px;"></textarea><br><br>
+          <label for="message">Message</label><br>
+          <textarea id="message" name="message" rows="3" required style="width:100%;padding:8px;"></textarea><br><br>
+        </div>
 
         <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Submit Registration</button>
       </form>
@@ -105,6 +95,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const startDateInput = document.getElementById("start-date");
       const endDateInput = document.getElementById("end-date");
+      const courseSection = document.getElementById("course-section");
 
       const today = new Date();
       const sixtyDaysLater = new Date(today);
@@ -117,39 +108,54 @@
         return `${year}-${month}-${day}`;
       }
 
-      // Set initial start date limits
+      // Start date limits
       startDateInput.min = formatDate(today);
       startDateInput.max = formatDate(sixtyDaysLater);
       startDateInput.value = formatDate(today);
 
-      // Function to update end date range
+      // Update end date range based on start date
       function updateEndDateRange() {
         const startDate = new Date(startDateInput.value);
-        const endMax = new Date(startDate);
-        endMax.setDate(startDate.getDate() + 60);
+        const maxDate = new Date(startDate);
+        maxDate.setDate(startDate.getDate() + 60);
 
         endDateInput.min = formatDate(startDate);
-        endDateInput.max = formatDate(endMax);
+        endDateInput.max = formatDate(maxDate);
 
-        // Set end date to match start date if it's not within range
         const currentEnd = new Date(endDateInput.value);
-        if (currentEnd < startDate || currentEnd > endMax) {
-          endDateInput.value = formatDate(endMax);
+        if (currentEnd < startDate || currentEnd > maxDate) {
+          endDateInput.value = formatDate(maxDate);
         }
       }
 
-      // Update end date range when start date changes
       startDateInput.addEventListener("change", updateEndDateRange);
-
-      // Initial call to set end date limits
       updateEndDateRange();
 
-      // Bot prevention check
+      // Bot protection
       document.getElementById("registerForm").addEventListener("submit", function (e) {
         const honeypot = document.querySelector("input[name='honeypot']").value;
         if (honeypot !== "") {
           e.preventDefault();
           alert("Bot submission blocked.");
+        }
+      });
+
+      // Code verification logic
+      let generatedCode = "";
+
+      document.getElementById("send-code-btn").addEventListener("click", function () {
+        generatedCode = Math.floor(1000 + Math.random() * 9000).toString();
+        document.getElementById("code-box").style.display = "block";
+        document.getElementById("code-status").innerText = `Your code is: ${generatedCode}`;
+      });
+
+      document.getElementById("verify-btn").addEventListener("click", function () {
+        const entered = document.getElementById("code-input").value;
+        if (entered === generatedCode) {
+          document.getElementById("code-status").innerText = "✅ Code Verified!";
+          courseSection.style.display = "block";
+        } else {
+          document.getElementById("code-status").innerText = "❌ Incorrect Code. Try Again.";
         }
       });
     });
