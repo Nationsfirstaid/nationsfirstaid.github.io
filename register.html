@@ -5,6 +5,7 @@
   <title>Register – Nations First Aid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <!-- ✅ Load Supabase FIRST -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -45,11 +46,11 @@
         <label for="course">Course Interested In</label><br>
         <select id="course" name="course" required style="width:100%;padding:8px;">
           <option value="">-- Select a course --</option>
-          <option value="Standard First Aid – 2 day">Standard First Aid – 2 day</option>
-          <option value="SFA – Blended">SFA – Blended</option>
-          <option value="SFA – Recert">SFA – Recert</option>
-          <option value="Emergency First Aid">Emergency First Aid</option>
-          <option value="Marine Basic First Aid">Marine Basic First Aid</option>
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid – 2 day</option>
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – Blended">SFA – Blended</option>
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION">SFA – Recert</option>
+          <option value="Emergency First Aid (EFA) with CPR/AED Level C">Emergency First Aid</option>
+          <option value="Marine Basic First Aid (MBFA)">Marine Basic First Aid</option>
           <option value="CPR/AED Level C">CPR/AED Level C</option>
         </select><br><br>
 
@@ -76,14 +77,15 @@
     </div>
   </footer>
 
+  <!-- ✅ AFTER library is loaded -->
   <script>
-    const SUPABASE_URL = "https://eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
+    const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co"; // ✅ Your real project URL
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";    // ✅ Your real anon/public API key
 
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     document.addEventListener("DOMContentLoaded", async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await client.auth.getSession();
 
       if (session) {
         document.getElementById("email-auth-section").style.display = "none";
@@ -96,7 +98,7 @@
         const email = document.getElementById("auth-email").value;
         if (!email) return alert("Please enter your email.");
 
-        const { error } = await supabase.auth.signInWithOtp({
+        const { error } = await client.auth.signInWithOtp({
           email,
           options: {
             emailRedirectTo: "https://nationsfirstaid.com/register.html"
@@ -111,6 +113,7 @@
         }
       });
 
+      // Handle date range logic
       const start = document.getElementById("start-date");
       const end = document.getElementById("end-date");
       const today = new Date();
