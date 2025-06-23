@@ -1,79 +1,355 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Register – Nations First Aid</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="center">
-    <img class="watermark" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />
-    <img class="logo" src="logos/White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
-    <div class="site-name">NATIONS FIRST AID</div>
+<!DOCTYPE html>  
 
-    <form method="POST" action="submit-form.php">
-      <label for="name">Full Name:</label>
-      <input type="text" id="name" name="name" required />
+  
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required />
+<html lang="en">  
 
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required />
+  
 
-      <label for="course">Select Course:</label>
-      <select id="course" name="course" required>
-        <option>Select a course</option>
-        <option value="SFA-C">Standard First Aid – CPR C (Blended)</option>
-        <option value="EFA-C">Emergency First Aid – CPR C (Blended)</option>
-        <option value="MBFA">Marine Basic First Aid (Blended)</option>
-      </select>
+<head>  
 
-      <!-- Honeypot field for bots -->
-      <input type="text" name="honeypot" style="display:none" />
+  
 
-      <button type="submit">Register</button>
-    </form>
-  </div>
+  <meta charset="UTF-8" />  
 
-  <script>
-    document.querySelector("form").addEventListener("submit", function(e) {
-      const name = document.querySelector("#name").value.trim();
-      const email = document.querySelector("#email").value.trim();
-      const phone = document.querySelector("#phone").value.trim();
-      const course = document.querySelector("#course").value;
-      const honeypot = document.querySelector("input[name='honeypot']").value;
+  
 
-      let errors = [];
+  <title>Register – Nations First Aid</title>  
 
-      if (honeypot !== "") {
-        errors.push("Bot activity detected.");
-      }
+  
 
-      if (name.length < 2) {
-        errors.push("Please enter your full name.");
-      }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
 
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-      if (!email.match(emailPattern)) {
-        errors.push("Enter a valid email address.");
-      }
+  
 
-      const phonePattern = /^\d{10}$/;
-      if (!phone.match(phonePattern)) {
-        errors.push("Enter a 10-digit phone number.");
-      }
+  <link rel="stylesheet" href="style.css" />  
 
-      if (!course || course === "Select a course") {
-        errors.push("Please select a course.");
-      }
+  
 
-      if (errors.length > 0) {
-        e.preventDefault();
-        alert(errors.join("\n"));
-      }
-    });
-  </script>
-</body>
-</html>
+</head>  
+
+  
+
+<body>  
+
+  
+
+  <div class="center">  
+
+  
+
+    <img class="watermark" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />  
+
+  
+
+    <img class="logo" src="logos/White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />  
+
+  
+
+    <div class="site-name">NATIONS FIRST AID</div>  
+
+  
+
+    <div class="nav-btns">  
+
+  
+
+      <a href="index.html">Home</a>  
+
+  
+
+      <a href="about.html">About</a>  
+
+  
+
+      <a href="courses.html">Courses</a>  
+
+  
+
+      <a href="register.html">Register</a>  
+
+  
+
+      <a href="contact.html">Contact</a>  
+
+  
+
+    </div>  
+
+  
+
+    <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">  
+
+  
+
+      <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Register for a Class</h2>  
+
+  
+
+      <form action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST">  
+
+  
+
+        <input type="hidden" name="_captcha" value="false">  
+
+  
+
+          
+
+  
+
+        <label for="name">Full Name</label><br>  
+
+  
+
+        <input type="text" id="name" name="name" required style="width:100%;padding:8px;"><br><br>  
+
+  
+
+          
+
+  
+
+        <label for="email">Email Address</label><br>  
+
+  
+
+        <input type="email" id="email" name="email" required style="width:100%;padding:8px;"><br><br>  
+
+  
+
+          
+
+  
+
+        <label for="phone">Phone Number</label><br>  
+
+  
+
+        <input type="tel" id="phone" name="phone" style="width:100%;padding:8px;"><br><br>  
+
+  
+
+          
+
+  
+
+        <label for="course">Course Interested In</label><br>  
+
+  
+
+        <select id="course" name="course" style="width:100%;padding:8px;">  
+
+  
+
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – 2 day">Standard First Aid (SFA) with CPR/AED Level C – 2 day</option>  
+
+  
+
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – Blended">Standard First Aid (SFA) with CPR/AED Level C – Blended</option>  
+
+  
+
+          <option value="Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION">Standard First Aid (SFA) with CPR/AED Level C – RECERTIFICATION</option>  
+
+  
+
+          <option value="Emergency First Aid (EFA) with CPR/AED Level C">Emergency First Aid (EFA) with CPR/AED Level C</option>  
+
+  
+
+          <option value="Marine Basic First Aid (MBFA)">Marine Basic First Aid (MBFA)</option>  
+
+  
+
+          <option value="CPR/AED Level C">CPR/AED Level C</option>  
+
+  
+
+        </select><br><br>  
+
+  
+
+          
+
+  
+
+        <!-- Date Range Section -->  
+
+  
+
+        <label for="start-date">Preferred Start Date</label><br>  
+
+  
+
+        <input type="date" id="start-date" name="start-date" required style="width:100%;padding:8px;"><br><br>  
+
+  
+
+          
+
+  
+
+        <label for="end-date">Desired Certification By</label><br>  
+
+  
+
+        <input type="date" id="end-date" name="end-date" required style="width:100%;padding:8px;"><br><br>  
+
+  
+
+          
+
+  
+
+        <label for="message">Message</label><br>  
+
+  
+
+        <textarea id="message" name="message" rows="3" style="width:100%;padding:8px;"></textarea><br><br>  
+
+  
+
+          
+
+  
+
+        <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Submit Registration</button>  
+
+  
+
+      </form>  
+
+  
+
+      <br>  
+
+  
+
+      <div style="margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">  
+
+  
+
+        We welcome both public and private group training requests.<br>  
+
+  
+
+        Classes and scheduling are emailed to students upon registration and request of date/certification needed.  
+
+  
+
+      </div>  
+
+  
+
+    </main>  
+
+  
+
+  </div>  
+
+  
+
+  <footer>  
+
+  
+
+    <div class="disclaimer">  
+
+  
+
+      &copy; 2025 Nations First Aid. All rights reserved.<br>  
+
+  
+
+      All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator.<br>  
+
+  
+
+      Unauthorized reproduction, distribution, or commercial use is strictly prohibited. Use of Indigenous imagery and symbols is with respect for cultural significance and community tradition.  
+
+  
+
+    </div>  
+
+  
+
+  </footer>  
+
+  
+
+  <script> 
+
+  document.addEventListener("DOMContentLoaded", function () { 
+
+    const today = new Date(); 
+
+  
+
+    const sixMonthsLater = new Date(); 
+
+    sixMonthsLater.setMonth(today.getMonth() + 6); 
+
+  
+
+    const oneYearLater = new Date(); 
+
+    oneYearLater.setFullYear(today.getFullYear() + 1); 
+
+  
+
+    function formatDate(date) { 
+
+      const year = date.getFullYear(); 
+
+      const month = String(date.getMonth() + 1).padStart(2, '0'); 
+
+      const day = String(date.getDate()).padStart(2, '0'); 
+
+      return `${year}-${month}-${day}`; 
+
+    } 
+
+  
+
+    const startDate = document.getElementById('start-date'); 
+
+    const endDate = document.getElementById('end-date'); 
+
+  
+
+    const todayStr = formatDate(today); 
+
+    const sixMonthsStr = formatDate(sixMonthsLater); 
+
+    const oneYearStr = formatDate(oneYearLater); 
+
+  
+
+    // Set limits for start date 
+
+    startDate.min = todayStr; 
+
+    startDate.max = twoMonthStr; 
+
+    startDate.value = todayStr; 
+
+  
+
+    // Set limits for end date 
+
+    endDate.min = todayStr; 
+
+    endDate.max = sixmonthsStr; 
+
+    endDate.value = oneYearStr; 
+
+  }); 
+
+</script> 
+
+</body>  
+
+  
+
+</html>  
