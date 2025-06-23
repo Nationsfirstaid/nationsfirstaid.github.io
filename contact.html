@@ -24,15 +24,15 @@
     <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
       <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Contact</h2>
 
-      <!-- Email Verification Section -->
+      <!-- Email Login -->
       <div id="email-auth-section">
-        <label for="auth-email">Enter your Email Address</label><br>
+        <label for="auth-email" style="color:#fff;">Enter your Email Address</label><br>
         <input type="email" id="auth-email" style="width:100%;padding:8px;" required><br><br>
         <button id="send-link-btn" type="button" style="width:100%;padding:10px;">Get Link to Send Message</button>
         <p id="email-message" style="color:#fff; margin-top:10px;"></p>
       </div>
 
-      <!-- Contact Form -->
+      <!-- Message Form -->
       <form id="contactForm" action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST" style="display:none;">
         <input type="hidden" name="_captcha" value="false">
 
@@ -48,13 +48,12 @@
         <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Send Message</button>
       </form>
 
-      <br>
+      <div id="success-msg" style="color:lightgreen; display:none; margin-top: 20px; text-align:center;"></div>
+
       <div style="margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
         Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#fff;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
         Phone: 587-599-9355
       </div>
-
-      <div id="success-msg" style="color:lightgreen; display:none; margin-top: 20px; text-align:center;"></div>
     </main>
   </div>
 
@@ -67,8 +66,8 @@
   </footer>
 
   <script>
-    const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co"; // ✅ Replace with your real Supabase project URL if different
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
+    const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co"; // Your Supabase URL
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk"; // Replace with your actual Supabase anon key
     const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     document.addEventListener("DOMContentLoaded", async () => {
@@ -77,9 +76,11 @@
       if (session) {
         document.getElementById("email-auth-section").style.display = "none";
         document.getElementById("contactForm").style.display = "block";
-        document.getElementById("success-msg").innerText = "✅ Verified! You can now send a message.";
+        document.getElementById("success-msg").innerText = "✅ Verified! Please leave us a message.";
         document.getElementById("success-msg").style.display = "block";
-        document.getElementById("email").value = session.user.email;
+
+        const userEmail = session.user.email;
+        document.getElementById("email").value = userEmail;
       }
 
       document.getElementById("send-link-btn").addEventListener("click", async () => {
@@ -96,7 +97,7 @@
         if (error) {
           document.getElementById("email-message").innerText = "Error: " + error.message;
         } else {
-          document.getElementById("email-message").innerText = "✅ Check your inbox to confirm.";
+          document.getElementById("email-message").innerHTML = "✅ Check your inbox for the login link.";
           window.localStorage.setItem("emailForSignIn", email);
         }
       });
