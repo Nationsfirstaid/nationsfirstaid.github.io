@@ -167,9 +167,15 @@ img {
 }
 
 .image-row img:hover {
-  transform: scale(1.75);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  transform: scale(2.1);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+  z-index: 10;
 }
+
+.image-row img {
+  transition: transform 0.28s cubic-bezier(.47,1.64,.41,.8), box-shadow 0.28s;
+}
+
 
 .image-row figcaption {
   margin-top: 7px;
