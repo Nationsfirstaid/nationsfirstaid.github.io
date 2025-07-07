@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="assets/first_aid_teepee_navicon.ico" type="image/x-icon">
+
+  document.getElementById("regForm").addEventListener("submit", function(e) {
+  const btn = this.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  btn.innerText = "Submitting...";
+});
+
   <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Google Tag -->
