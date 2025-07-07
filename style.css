@@ -423,3 +423,23 @@ footer {
   .top-btn { font-size: 0.91rem; padding: 7px 14px; }
 }
 
+.cta {
+  background: #f5c518;
+  color: #b22222;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.13s;
+  box-shadow: 0 2px 8px rgba(80,0,0,0.09);
+}
+
+.cta:hover,
+.cta:focus {
+  background: #ffe680;
+  color: #8c1818;
+  transform: scale(1.05);
+}
