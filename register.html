@@ -5,30 +5,16 @@
   <title>Register – Nations First Aid</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/first_aid_teepee_navicon.ico" type="image/x-icon">
-
-  document.getElementById("regForm").addEventListener("submit", function(e) {
-  const btn = this.querySelector('button[type="submit"]');
-  btn.disabled = true;
-  btn.innerText = "Submitting...";
-});
-
-  <!-- Supabase -->
+  <!-- ✅ Load Supabase FIRST -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- Google Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTR49RKL1P"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CTR49RKL1P');
-  </script>
+  <link rel="icon" href="assets/first_aid_teepee_navicon.ico" type="image/x-icon">
 </head>
 <body>
   <div class="center">
     <img class="watermark" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />
     <img class="logo" src="logos/White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
     <div class="site-name">NATIONS FIRST AID</div>
+
     <div class="nav-btns">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -36,8 +22,10 @@
       <a href="register.html" class="active">Register</a>
       <a href="contact.html">Contact</a>
     </div>
+
     <main style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 28px 16px 20px 16px;">
       <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Register for a Class</h2>
+
       <!-- Email Authentication -->
       <div id="email-auth-section">
         <label for="auth-email">Enter your Email Address</label><br>
@@ -45,17 +33,19 @@
         <button id="send-link-btn" type="button" style="width:100%;padding:10px;">Send Sign-In Link</button>
         <p id="email-message" style="color:#fff; margin-top:10px;"></p>
       </div>
-      <!-- Registration Form (hidden until auth) -->
+
+      <!-- Full Registration Form -->
       <form id="regForm" action="https://formsubmit.co/nationsfirstaid@mail.com" method="POST" style="display:none;">
-
-        <input type="hidden" name="_next" value="https://nationsfirstaid.github.io/thankyou.html">
-
         <input type="hidden" name="_captcha" value="false">
+        <!-- 👇 ADD THE REDIRECT HERE -->
         <input type="hidden" name="_next" value="https://nationsfirstaid.github.io/thankyou.html">
+
         <label for="name">Full Name</label><br>
         <input type="text" id="name" name="name" required style="width:100%;padding:8px;"><br><br>
+
         <label for="phone">Phone Number</label><br>
         <input type="tel" id="phone" name="phone" required style="width:100%;padding:8px;"><br><br>
+
         <label for="course">Course Interested In</label><br>
         <select id="course" name="course" required style="width:100%;padding:8px;">
           <option value="">-- Select a course --</option>
@@ -66,29 +56,37 @@
           <option value="Marine Basic First Aid (MBFA)">Marine Basic First Aid</option>
           <option value="CPR/AED Level C">CPR/AED Level C</option>
         </select><br><br>
+
         <label for="start-date">Preferred Start Date</label><br>
         <input type="date" id="start-date" name="start-date" required style="width:100%;padding:8px;"><br><br>
+
         <label for="end-date">Desired Certification By</label><br>
         <input type="date" id="end-date" name="end-date" required style="width:100%;padding:8px;"><br><br>
+
         <label for="message">Message</label><br>
         <textarea id="message" name="message" rows="3" style="width:100%;padding:8px;"></textarea><br><br>
-        <button type="submit" class="cta" style="width:100%;padding:12px 0;font-size:1.1rem;">Submit Registration</button>
+
+        <button type="submit" class="cta" style="width:100%;">Submit Registration</button>
       </form>
+
       <div id="success-msg" style="color:lightgreen; display:none; margin-top: 20px; text-align:center;"></div>
     </main>
   </div>
+
   <!-- Indigenous-Owned Logo and Return to Top Button -->
   <div class="indigenous-footer">
     <img src="logos/logosindigenous-owned.png.png" alt="Indigenous-Owned and Operated" class="indigenous-logo" />
     <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">Return to Top</button>
   </div>
+  
   <footer>
     <div class="disclaimer">
       &copy; 2025 Nations First Aid. All rights reserved.<br>
       All content is the property of Nations First Aid and its creator.
     </div>
   </footer>
-  <!-- JS: Supabase auth + date logic -->
+
+  <!-- ✅ JS -->
   <script>
     const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
@@ -107,12 +105,14 @@
       document.getElementById("send-link-btn").addEventListener("click", async () => {
         const email = document.getElementById("auth-email").value;
         if (!email) return alert("Please enter your email.");
+
         const { error } = await client.auth.signInWithOtp({
           email,
           options: {
             emailRedirectTo: "https://nationsfirstaid.com/register.html"
           }
         });
+
         if (error) {
           document.getElementById("email-message").innerText = "Error: " + error.message;
         } else {
@@ -121,16 +121,21 @@
         }
       });
 
-      // --- Date logic: 60 day window ---
+      // Handle date range logic
       const start = document.getElementById("start-date");
       const end = document.getElementById("end-date");
       const today = new Date();
       const plus60 = new Date(today);
       plus60.setDate(today.getDate() + 60);
-      function fmt(d) { return d.toISOString().split('T')[0]; }
+
+      function fmt(d) {
+        return d.toISOString().split('T')[0];
+      }
+
       start.min = fmt(today);
       start.max = fmt(plus60);
       start.value = fmt(today);
+
       start.addEventListener("change", () => {
         const sd = new Date(start.value);
         const max = new Date(sd);
@@ -139,7 +144,20 @@
         end.max = fmt(max);
         end.value = fmt(max);
       });
+
       start.dispatchEvent(new Event("change"));
+    });
+
+    // Prevent multiple submits and add hover effect
+    document.addEventListener('DOMContentLoaded', function() {
+      const regForm = document.getElementById("regForm");
+      if (regForm) {
+        regForm.addEventListener("submit", function(e) {
+          const btn = this.querySelector('button[type="submit"]');
+          btn.disabled = true;
+          btn.innerText = "Submitting...";
+        });
+      }
     });
   </script>
 </body>
