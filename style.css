@@ -444,65 +444,113 @@ footer {
   transform: scale(1.05);
 }
 
+
+
 .equiv-box {
   background: #fff8e1;
-  border: 2px solid #e0a800;
-  border-radius: 14px;
-  padding: 24px 18px;
-  margin: 28px 0;
-  max-width: 600px;
-  box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+  border: 2.5px solid #e0a800;
+  border-radius: 16px;
+  margin: 36px auto 28px auto;
+  padding: 34px 20px 24px 20px;
+  max-width: 550px;
+  text-align: center;
+  box-shadow: 0 2px 20px rgba(160,18,18,0.11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .equiv-title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #c1440e;
-  margin-bottom: 14px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #b22222;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
+
 .equiv-row {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: wrap;
 }
+
 .equiv-left, .equiv-right {
-  flex: 1;
+  flex: 1 1 180px;
+  font-size: 1.12rem;
+  color: #b22222;
+  font-weight: 600;
+  text-align: center;
+  padding: 2px 4px;
 }
+
 .equiv-arrow {
-  font-size: 2rem;
-  margin: 0 14px;
-  color: #c1440e;
+  font-size: 2.2rem;
+  margin: 0 10px;
+  color: #e0a800;
+  flex: 0 0 28px;
+  text-align: center;
 }
+
 .equiv-what-is {
   display: inline-block;
   position: relative;
   cursor: pointer;
+  color: #c1440e;
+  font-weight: 500;
+  margin-left: 8px;
 }
+
+.equiv-what-is span {
+  border-bottom: 1px dashed #e0a800;
+  font-size: 0.95rem;
+}
+
 .equiv-what-is .what-popup {
   display: none;
   position: absolute;
-  left: 0;
-  top: 120%;
+  left: 50%;
+  top: 130%;
+  transform: translateX(-50%);
   background: #fffbea;
-  border: 1px solid #e0a800;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-  padding: 10px 14px;
-  width: 240px;
-  font-size: 0.96rem;
-  z-index: 9;
+  border: 1.5px solid #e0a800;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(180,100,20,0.13);
+  padding: 12px 16px;
+  width: 255px;
+  font-size: 1rem;
+  color: #b22222;
+  z-index: 11;
 }
+
 .equiv-what-is.show .what-popup,
 .equiv-what-is:hover .what-popup {
   display: block;
 }
+
 .equiv-source {
   display: block;
-  margin-top: 18px;
-  font-size: 0.95rem;
+  margin-top: 20px;
+  font-size: 1.01rem;
   color: #0075b7;
   text-decoration: underline;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
+
 .equiv-source:hover {
-  color: #c1440e;
+  color: #b22222;
+}
+
+/* --- Mobile Tweaks for Equivalency Box --- */
+@media (max-width: 700px) {
+  .equiv-box { max-width: 95vw; padding: 18px 5vw; }
+  .equiv-title { font-size: 1.12rem; }
+  .equiv-row { flex-direction: column; gap: 6px; }
+  .equiv-arrow { margin: 2px 0; font-size: 2rem; }
+  .equiv-left, .equiv-right { font-size: 1rem; }
 }
 
