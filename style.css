@@ -445,93 +445,112 @@ footer {
 }
 
 
+/* ========================== */
+/*  EQUIVALENCY BOX STYLES    */
+/* ========================== */
+
+/* ===== DESKTOP COMPACT BOX ===== */
 .equiv-box {
   background: #fff8e1;
   border: 2.5px solid #e0a800;
-  border-radius: 16px;
-  margin: 36px auto 28px auto;
-  padding: 32px 38px 24px 38px;
-  max-width: 540px;
-  min-width: 220px;
+  border-radius: 15px;
+  margin: 32px auto 18px auto;
+  padding: 18px 10px 16px 10px;
+  max-width: 390px;
+  min-width: 0;
   text-align: center;
-  box-shadow: 0 2px 20px rgba(160,18,18,0.11);
+  box-shadow: 0 2px 16px rgba(160,18,18,0.10);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* ===== TITLE ===== */
 .equiv-title {
-  font-size: 1.5rem;
+  font-size: 1.20rem;
   font-weight: 700;
   color: #b22222;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  margin-bottom: 13px;
+  line-height: 1.2;
+  padding: 0 1vw;
 }
 
+/* ===== ROWS ===== */
 .equiv-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  gap: 10px;
+  margin-bottom: 12px;
+  gap: 7px;
   width: 100%;
   flex-wrap: wrap;
 }
 
-.equiv-left, .equiv-right {
-  flex: 1 1 160px;
-  font-size: 1.13rem;
+/* ===== LABELS ===== */
+.equiv-left,
+.equiv-right {
+  flex: 1 1 100px;
+  font-size: 1.01rem;
   color: #b22222;
   font-weight: 700;
   text-align: center;
-  padding: 2px 4px;
+  padding: 1px 2px;
+  word-break: break-word;
 }
 
+/* ===== ARROW ===== */
 .equiv-arrow {
-  font-size: 1.65rem;
-  margin: 0 12px;
+  font-size: 1.18rem;
+  margin: 0 5px;
   color: #e0a800;
-  flex: 0 0 28px;
+  flex: 0 0 20px;
   text-align: center;
 }
 
+/* ====== WHAT IS THIS? ====== */
 .equiv-what-is {
   display: inline-block;
   position: relative;
   cursor: pointer;
   color: #c1440e;
   font-weight: 500;
-  margin-left: 8px;
+  margin-left: 7px;
 }
 .equiv-what-is span {
   border-bottom: 1px dashed #e0a800;
-  font-size: 0.99rem;
+  font-size: 0.94rem;
 }
 .equiv-what-is .what-popup {
   display: none;
   position: absolute;
   left: 50%;
-  top: 120%;
+  top: 125%;
   transform: translateX(-50%);
   background: #fffbea;
   border: 1.5px solid #e0a800;
-  border-radius: 10px;
-  box-shadow: 0 4px 18px rgba(180,100,20,0.13);
-  padding: 10px 12px;
-  width: 255px;
-  font-size: 1rem;
+  border-radius: 9px;
+  box-shadow: 0 4px 14px rgba(180,100,20,0.12);
+  padding: 9px 11px;
+  width: max-content;
+  min-width: 100px;
+  max-width: 260px;
+  font-size: 0.98rem;
   color: #b22222;
-  z-index: 11;
+  z-index: 21;
+  word-break: break-word;
+  white-space: normal;
 }
 .equiv-what-is.show .what-popup,
 .equiv-what-is:hover .what-popup {
   display: block;
 }
 
+/* ====== SOURCE LINK ====== */
 .equiv-source {
   display: block;
-  margin-top: 20px;
-  font-size: 1.01rem;
+  margin-top: 12px;
+  font-size: 0.92rem;
   color: #0075b7;
   text-decoration: underline;
   font-weight: 500;
@@ -541,120 +560,55 @@ footer {
   color: #b22222;
 }
 
-/* MOBILE OPTIMIZED */
+/* ======= MOBILE STYLES ======= */
 @media (max-width: 650px) {
   .equiv-box {
     max-width: 97vw;
-    min-width: 0;
-    padding: 10px 3vw 12px 3vw;
-    margin: 13px 1vw;
-    border-radius: 11px;
-    font-size: 0.97rem;
+    padding: 6px 2vw 8px 2vw;
+    margin: 10px 1vw;
+    border-radius: 8px;
+    font-size: 0.94rem;
   }
   .equiv-title {
-    font-size: 1.09rem;
-    margin-bottom: 8px;
-    line-height: 1.18;
+    font-size: 0.99rem;
+    margin-bottom: 6px;
     padding: 0 2vw;
   }
   .equiv-row {
     flex-direction: column;
     gap: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     width: 100%;
     align-items: center;
     justify-content: center;
   }
   .equiv-arrow {
-    font-size: 1.13rem;
-    margin: 2px 0 2px 0;
+    font-size: 1rem;
+    margin: 1px 0;
     padding: 0;
   }
-  .equiv-left, .equiv-right {
-    font-size: 0.97rem;
-    padding: 1px 0 2px 0;
+  .equiv-left,
+  .equiv-right {
+    font-size: 0.93rem;
     font-weight: 700;
     width: 100%;
-    word-break: break-word;
+    padding: 1px 0 2px 0;
   }
   .equiv-what-is span {
-    font-size: 0.93rem;
+    font-size: 0.91rem;
   }
   .equiv-what-is .what-popup {
-    width: 80vw;
-    font-size: 0.92rem;
-    padding: 7px 9px;
+    width: 88vw;
+    font-size: 0.90rem;
     left: 50%;
     min-width: 0;
     max-width: 98vw;
-    white-space: normal;
+    padding: 7px 8px;
   }
   .equiv-source {
-    font-size: 0.84rem;
-    margin: 10px auto 0 auto;
-    padding-bottom: 4px;
+    font-size: 0.80rem;
+    margin-top: 5px;
+    padding-bottom: 2px;
     text-align: center;
   }
-  /* ====== DESKTOP: More Compact Equivalency Box ====== */
-.equiv-box {
-  max-width: 400px;      /* Make the box more compact on desktop */
-  padding: 24px 12px;    /* Reduce padding */
 }
-
-/* ====== MOBILE: Even More Compact & Popup Fix ====== */
-@media (max-width: 700px) {
-  .equiv-box {
-    max-width: 97vw;
-    padding: 8px 2vw;
-    border-radius: 10px;
-  }
-  .equiv-title {
-    font-size: 1rem;
-    margin-bottom: 8px;
-  }
-  .equiv-row {
-    flex-direction: column;
-    gap: 2px;
-    margin-bottom: 6px;
-  }
-  .equiv-left, .equiv-right {
-    font-size: 0.95rem;
-    padding: 1px 2px;
-    text-align: center;
-  }
-  .equiv-arrow {
-    font-size: 1.1rem;
-    margin: 1px 0;
-  }
-  .equiv-what-is span {
-    font-size: 0.93rem;
-  }
-  .equiv-what-is .what-popup {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    right: auto !important;
-    min-width: 120px;
-    max-width: 92vw;
-    width: max-content;
-    font-size: 0.96rem;
-    word-break: break-word;
-    box-shadow: 0 2px 8px rgba(160,18,18,0.14);
-    z-index: 99;
-  }
-}
-
-/* ====== ALL SIZES: Popup Fix to Stay Centered and Not Bounce Off ====== */
-.equiv-what-is .what-popup {
-  left: 50%;
-  transform: translateX(-50%);
-  right: auto;
-  min-width: 140px;
-  max-width: 320px;
-  word-break: break-word;
-  z-index: 11;
-  font-size: 1rem;
-  padding: 10px 12px;
-}
-
-}
-
