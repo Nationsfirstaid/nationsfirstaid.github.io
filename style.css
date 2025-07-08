@@ -587,11 +587,11 @@ footer {
     padding: 1px 0 1px 0;
     width: 100%;
     word-break: break-word;
-    color: #a01212 !important;
+    color: #b22222 !important;
   }
   .equiv-what-is span {
     font-size: 0.83rem;
-    color: #c1440e !important;
+    color: #b22222 !important;
   }
   .equiv-what-is .what-popup {
     width: 84vw;
@@ -603,13 +603,13 @@ footer {
     transform: translateX(-50%);
     white-space: normal;
     text-align: left;
-    color: #a01212 !important;
+    color: #b22222 !important;
   }
   .equiv-source {
     font-size: 0.77rem;
     margin: 5px auto 0 auto;
     padding-bottom: 2px;
     text-align: center;
-    color: #0075b7 !important;
+    color: #b22222 !important;
   }
 }
