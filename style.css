@@ -554,7 +554,7 @@ footer {
   .equiv-left, .equiv-right { font-size: 1rem; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   .equiv-box {
     max-width: 98vw;
     padding: 8px 2vw 14px 2vw;
