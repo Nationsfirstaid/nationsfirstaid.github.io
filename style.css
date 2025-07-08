@@ -445,14 +445,14 @@ footer {
 }
 
 
-
 .equiv-box {
   background: #fff8e1;
   border: 2.5px solid #e0a800;
   border-radius: 16px;
   margin: 36px auto 28px auto;
-  padding: 34px 20px 24px 20px;
-  max-width: 550px;
+  padding: 32px 38px 24px 38px;
+  max-width: 540px;
+  min-width: 220px;
   text-align: center;
   box-shadow: 0 2px 20px rgba(160,18,18,0.11);
   display: flex;
@@ -479,17 +479,17 @@ footer {
 }
 
 .equiv-left, .equiv-right {
-  flex: 1 1 180px;
-  font-size: 1.12rem;
+  flex: 1 1 160px;
+  font-size: 1.13rem;
   color: #b22222;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   padding: 2px 4px;
 }
 
 .equiv-arrow {
-  font-size: 2.2rem;
-  margin: 0 10px;
+  font-size: 1.65rem;
+  margin: 0 12px;
   color: #e0a800;
   flex: 0 0 28px;
   text-align: center;
@@ -503,29 +503,26 @@ footer {
   font-weight: 500;
   margin-left: 8px;
 }
-
 .equiv-what-is span {
   border-bottom: 1px dashed #e0a800;
-  font-size: 0.95rem;
+  font-size: 0.99rem;
 }
-
 .equiv-what-is .what-popup {
   display: none;
   position: absolute;
   left: 50%;
-  top: 130%;
+  top: 120%;
   transform: translateX(-50%);
   background: #fffbea;
   border: 1.5px solid #e0a800;
   border-radius: 10px;
   box-shadow: 0 4px 18px rgba(180,100,20,0.13);
-  padding: 12px 16px;
+  padding: 10px 12px;
   width: 255px;
   font-size: 1rem;
   color: #b22222;
   z-index: 11;
 }
-
 .equiv-what-is.show .what-popup,
 .equiv-what-is:hover .what-popup {
   display: block;
@@ -540,55 +537,63 @@ footer {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
-
 .equiv-source:hover {
   color: #b22222;
 }
 
-/* --- Mobile Tweaks for Equivalency Box --- */
-@media (max-width: 700px) {
-  .equiv-box { max-width: 95vw; padding: 18px 5vw; }
-  .equiv-title { font-size: 1.12rem; }
-  .equiv-row { flex-direction: column; gap: 6px; }
-  .equiv-arrow { margin: 2px 0; font-size: 2rem; }
-  .equiv-left, .equiv-right { font-size: 1rem; }
-}
-
-@media (max-width: 400px) {
+/* MOBILE OPTIMIZED */
+@media (max-width: 650px) {
   .equiv-box {
-    max-width: 98vw;
-    padding: 8px 2vw 14px 2vw;
-    margin: 12px 1vw;
-    border-radius: 10px;
+    max-width: 97vw;
+    min-width: 0;
+    padding: 10px 3vw 12px 3vw;
+    margin: 13px 1vw;
+    border-radius: 11px;
+    font-size: 0.97rem;
   }
   .equiv-title {
-    font-size: 1.01rem;
+    font-size: 1.09rem;
     margin-bottom: 8px;
-    line-height: 1.15;
+    line-height: 1.18;
+    padding: 0 2vw;
   }
   .equiv-row {
     flex-direction: column;
-    gap: 2px;
+    gap: 0px;
     margin-bottom: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   .equiv-arrow {
     font-size: 1.13rem;
     margin: 2px 0 2px 0;
+    padding: 0;
   }
   .equiv-left, .equiv-right {
-    font-size: 0.89rem;
-    padding: 1px 0;
+    font-size: 0.97rem;
+    padding: 1px 0 2px 0;
+    font-weight: 700;
+    width: 100%;
+    word-break: break-word;
   }
   .equiv-what-is span {
-    font-size: 0.91rem;
+    font-size: 0.93rem;
   }
   .equiv-what-is .what-popup {
-    width: 90vw;
-    font-size: 0.93rem;
+    width: 80vw;
+    font-size: 0.92rem;
     padding: 7px 9px;
+    left: 50%;
+    min-width: 0;
+    max-width: 98vw;
+    white-space: normal;
   }
   .equiv-source {
-    font-size: 0.82rem;
-    margin: 7px auto 0 auto;
+    font-size: 0.84rem;
+    margin: 10px auto 0 auto;
+    padding-bottom: 4px;
+    text-align: center;
   }
 }
+
