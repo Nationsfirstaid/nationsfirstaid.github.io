@@ -612,4 +612,28 @@ footer {
     text-align: center;
     color: #a01212 !important;
   }
+
+  .auth-email-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1.5px solid #ccc;
+  transition: border 0.2s, background 0.2s;
+  background: #fff;
+  color: #a01212;
+  font-size: 1rem;
+}
+.auth-email-input:focus, .auth-email-input:hover {
+  border: 2px solid #f5c518;
+  background: #ffe68020;
+  outline: none;
+}
+.auth-email-input[readonly] {
+  background: #f8f8f8;
+  color: #a01212;
+  border: 2px solid #a01212;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
 }
