@@ -99,12 +99,15 @@
       const { data: { session } } = await client.auth.getSession();
 
       if (session) {
-        document.getElementById("email-auth-section").style.display = "none";
-        document.getElementById("regForm").style.display = "block";
-        document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
-        document.getElementById("success-msg").style.display = "block";
-      }
-
+  document.getElementById("email-auth-section").style.display = "none";
+  document.getElementById("regForm").style.display = "block";
+  document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
+  document.getElementById("success-msg").style.display = "block";
+  
+  // Fill in the email field automatically
+  if (session.user && session.user.email) {
+    document.getElementById("form-email").value = session.user.email;
+  }
       document.getElementById("send-link-btn").addEventListener("click", async () => {
         const email = document.getElementById("auth-email").value;
         if (!email) return alert("Please enter your email.");
