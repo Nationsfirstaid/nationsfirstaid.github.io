@@ -603,4 +603,29 @@ footer {
     padding-bottom: 2px;
     text-align: center;
   }
+
+  .equiv-box,
+.equiv-box * {
+  color: #a01212 !important; /* Strong dark red for all text in the box */
+}
+.equiv-title {
+  color: #a01212 !important;
+  font-weight: 700;
+}
+.equiv-left, .equiv-right {
+  color: #a01212 !important;
+}
+.equiv-what-is {
+  color: #a01212 !important;
+}
+.equiv-what-is span {
+  color: #c1440e !important;
+}
+.equiv-arrow {
+  color: #e0a800 !important;
+}
+.equiv-source {
+  color: #0075b7 !important;
+}
+
 }
