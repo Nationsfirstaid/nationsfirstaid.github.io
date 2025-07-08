@@ -595,5 +595,66 @@ footer {
     padding-bottom: 4px;
     text-align: center;
   }
+  /* ====== DESKTOP: More Compact Equivalency Box ====== */
+.equiv-box {
+  max-width: 400px;      /* Make the box more compact on desktop */
+  padding: 24px 12px;    /* Reduce padding */
+}
+
+/* ====== MOBILE: Even More Compact & Popup Fix ====== */
+@media (max-width: 700px) {
+  .equiv-box {
+    max-width: 97vw;
+    padding: 8px 2vw;
+    border-radius: 10px;
+  }
+  .equiv-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .equiv-row {
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 6px;
+  }
+  .equiv-left, .equiv-right {
+    font-size: 0.95rem;
+    padding: 1px 2px;
+    text-align: center;
+  }
+  .equiv-arrow {
+    font-size: 1.1rem;
+    margin: 1px 0;
+  }
+  .equiv-what-is span {
+    font-size: 0.93rem;
+  }
+  .equiv-what-is .what-popup {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+    min-width: 120px;
+    max-width: 92vw;
+    width: max-content;
+    font-size: 0.96rem;
+    word-break: break-word;
+    box-shadow: 0 2px 8px rgba(160,18,18,0.14);
+    z-index: 99;
+  }
+}
+
+/* ====== ALL SIZES: Popup Fix to Stay Centered and Not Bounce Off ====== */
+.equiv-what-is .what-popup {
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  min-width: 140px;
+  max-width: 320px;
+  word-break: break-word;
+  z-index: 11;
+  font-size: 1rem;
+  padding: 10px 12px;
+}
+
 }
 
