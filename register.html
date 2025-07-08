@@ -9,6 +9,27 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="icon" href="assets/first_aid_teepee_navicon.ico" type="image/x-icon">
 </head>
+
+  document.getElementById("send-link-btn").addEventListener("click", async () => {
+  const emailInput = document.getElementById("auth-email");
+  const email = emailInput.value;
+  if (!email) return alert("Please enter your email.");
+
+  // [Insert your authentication code here if needed]
+
+  // Make auth email input readonly
+  emailInput.readOnly = true;
+
+  // Show message
+  document.getElementById("email-message").innerText = "✅ Check your inbox for the login link. Continue registration below.";
+
+  // Populate and show registration form
+  const regForm = document.getElementById("regForm");
+  const regEmail = document.getElementById("reg-email");
+  regEmail.value = email;
+  regForm.style.display = "block";
+});
+
 <body>
   <div class="center">
     <img class="watermark" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />
