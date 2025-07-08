@@ -446,30 +446,32 @@ footer {
 
 
 /* ========================== */
-/*  EQUIVALENCY BOX STYLES    */
+/*      EQUIVALENCY BOX       */
 /* ========================== */
 
-/* ===== DESKTOP COMPACT BOX ===== */
 .equiv-box {
   background: #fffbe8;
   border: 1.5px solid #e0a800;
   border-radius: 8px;
   margin: 24px auto 14px auto;
-  padding: 8px 10px 6px 10px;
-  max-width: 310px;
+  padding: 10px 14px 10px 14px;
+  max-width: 320px;
   min-width: 0;
   text-align: center;
-  box-shadow: 0 1px 6px rgba(160,18,
+  box-shadow: 0 1px 6px rgba(160,18,18,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .equiv-title {
   font-size: 1.09rem;
   font-weight: 700;
-  color: #b22222;
+  color: #a01212;
   letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   line-height: 1.16;
-  padding: 0 4vw;
+  padding: 0 2vw;
 }
 
 .equiv-row {
@@ -477,15 +479,15 @@ footer {
   align-items: center;
   justify-content: center;
   margin-bottom: 7px;
-  gap: 7px;
+  gap: 6px;
   width: 100%;
   flex-wrap: wrap;
 }
 
 .equiv-left, .equiv-right {
   flex: 1 1 70px;
-  font-size: 0.95rem;
-  color: #b22222;
+  font-size: 0.96rem;
+  color: #a01212;
   font-weight: 700;
   text-align: center;
   padding: 1px 2px;
@@ -493,10 +495,10 @@ footer {
 }
 
 .equiv-arrow {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: #e0a800;
-  flex: 0 0 16px;
-  margin: 0 5px;
+  flex: 0 0 14px;
+  margin: 0 4px;
   text-align: center;
 }
 
@@ -506,29 +508,31 @@ footer {
   cursor: pointer;
   color: #c1440e;
   font-weight: 500;
-  margin-left: 5px;
+  margin-left: 4px;
 }
 .equiv-what-is span {
   border-bottom: 1px dashed #e0a800;
   font-size: 0.89rem;
   padding-bottom: 1px;
+  color: #c1440e;
 }
 .equiv-what-is .what-popup {
   display: none;
   position: absolute;
   left: 50%;
-  top: 125%;
+  top: 115%;
   transform: translateX(-50%);
   background: #fffbea;
   border: 1px solid #e0a800;
   border-radius: 7px;
   box-shadow: 0 2px 10px rgba(180,100,20,0.13);
-  padding: 8px 12px;
-  width: 190px;
-  font-size: 0.93rem;
-  color: #b22222;
+  padding: 7px 10px;
+  width: 175px;
+  font-size: 0.91rem;
+  color: #a01212;
   z-index: 99;
   text-align: left;
+  white-space: normal;
 }
 .equiv-what-is.show .what-popup,
 .equiv-what-is:hover .what-popup {
@@ -537,37 +541,38 @@ footer {
 
 .equiv-source {
   display: block;
-  margin: 9px 0 0 0;
-  font-size: 0.87rem;
+  margin: 8px 0 0 0;
+  font-size: 0.85rem;
   color: #0075b7;
   text-decoration: underline;
   font-weight: 500;
   letter-spacing: 0.4px;
+  text-align: center;
 }
 .equiv-source:hover {
-  color: #b22222;
+  color: #a01212;
 }
 
 /* --- MOBILE OPTIMIZED --- */
 @media (max-width: 650px) {
   .equiv-box {
-    max-width: 95vw;
+    max-width: 90vw;
     min-width: 0;
-    padding: 7px 3vw 8px 3vw;
-    margin: 10px auto 12px auto;
+    padding: 5px 2vw 7px 2vw;
+    margin: 8px auto 8px auto;
     border-radius: 7px;
-    font-size: 0.94rem;
+    font-size: 0.91rem;
   }
   .equiv-title {
-    font-size: 0.99rem;
-    margin-bottom: 3px;
-    line-height: 1.11;
+    font-size: 0.96rem;
+    margin-bottom: 2px;
+    line-height: 1.09;
     padding: 0 2vw;
   }
   .equiv-row {
     flex-direction: column;
     gap: 0px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -578,54 +583,33 @@ footer {
     padding: 0;
   }
   .equiv-left, .equiv-right {
-    font-size: 0.89rem;
+    font-size: 0.85rem;
     padding: 1px 0 1px 0;
     width: 100%;
     word-break: break-word;
+    color: #a01212 !important;
   }
   .equiv-what-is span {
-    font-size: 0.87rem;
+    font-size: 0.83rem;
+    color: #c1440e !important;
   }
   .equiv-what-is .what-popup {
-    width: 88vw;
-    min-width: 100px;
-    max-width: 96vw;
-    font-size: 0.92rem;
-    padding: 7px 9px;
+    width: 84vw;
+    min-width: 90px;
+    max-width: 94vw;
+    font-size: 0.89rem;
+    padding: 6px 7px;
     left: 50%;
     transform: translateX(-50%);
     white-space: normal;
     text-align: left;
+    color: #a01212 !important;
   }
   .equiv-source {
-    font-size: 0.8rem;
-    margin: 6px auto 0 auto;
+    font-size: 0.77rem;
+    margin: 5px auto 0 auto;
     padding-bottom: 2px;
     text-align: center;
+    color: #0075b7 !important;
   }
-
-  .equiv-box,
-.equiv-box * {
-  color: #a01212 !important; /* Strong dark red for all text in the box */
-}
-.equiv-title {
-  color: #a01212 !important;
-  font-weight: 700;
-}
-.equiv-left, .equiv-right {
-  color: #a01212 !important;
-}
-.equiv-what-is {
-  color: #a01212 !important;
-}
-.equiv-what-is span {
-  color: #c1440e !important;
-}
-.equiv-arrow {
-  color: #e0a800 !important;
-}
-.equiv-source {
-  color: #0075b7 !important;
-}
-
 }
