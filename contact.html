@@ -1,4 +1,4 @@
-ified<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,29 +6,13 @@ ified<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <!-- Favicon -->
- <link rel="icon" href="assets/first_aid_teepee_navicon.ico" type="image/x-icon">
-
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PNRL98C2X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-6PNRL98C2X');
-</script>
-
+  <link rel="icon" href="assets/first_aid_teepee_navicon.ico" type="image/x-icon">
 </head>
-
 <body>
   <div class="center">
     <img class="watermark" src="logos/RedPNG_76c2cae5-c477-4636-b41a-881bb9e091a5.png" alt="Red Watermark" />
     <img class="logo" src="logos/White_PNG_74dcf535-3999-4f0a-b1fa-bbcebd79a35c.png" alt="Nations First Aid Logo" />
     <div class="site-name">NATIONS FIRST AID</div>
-
     <div class="nav-btns">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -36,66 +20,50 @@ ified<!DOCTYPE html>
       <a href="register.html">Register</a>
       <a href="contact.html" class="active">Contact</a>
     </div>
-
-   <main class="form-container">
-
-      <h2 style="color:#fff; text-align:center; margin-bottom: 16px;">Contact</h2>
-
+    <main class="form-container">
+      <h2>Contact</h2>
       <div id="contact-auth-section">
-        <label for="contact-email">Enter your Email Address</label><br>
-        <input type="email" id="contact-email" style="width:100%;padding:8px;" required><br><br>
-        <button id="send-contact-link-btn" type="button" style="width:100%;padding:10px;">Enter email to Connect</button>
-        <p id="contact-email-message" style="color:#fff; margin-top:10px;"></p>
+        <label for="contact-email">Enter your Email Address</label>
+        <input type="email" id="contact-email" class="auth-email-input" required>
+        <button id="send-contact-link-btn" type="button" class="cta">Enter email to Connect</button>
+        <p id="contact-email-message"></p>
       </div>
-
-      <div id="contact-info" style="display:none; margin: 18px 0 0 0; color:#fff; text-align:center; font-size:1.09rem;">
-        Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#fff;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
+      <div id="contact-info" style="display:none; margin: 18px 0 0 0; color:#b22222; text-align:center; font-size:1.09rem;">
+        Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#b22222;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
         Phone: 587-599-9355
       </div>
     </main>
   </div>
-
-  <!-- Indigenous-Owned Logo and Return to Top Button -->
-<div class="indigenous-footer">
-  <img src="logos/logosindigenous-owned.png.png" alt="Indigenous-Owned and Operated" class="indigenous-logo" />
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">Return to Top</button>
-</div>
-
+  <div class="indigenous-footer">
+    <img src="logos/logosindigenous-owned.png.png" alt="Indigenous-Owned and Operated" class="indigenous-logo" />
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="top-btn">Return to Top</button>
+  </div>
   <footer>
     <div class="disclaimer">
       &copy; 2025 Nations First Aid. All rights reserved.<br>
-      All images, logos, and illustrations on this site are the exclusive property of Nations First Aid and its creator.<br>
-      Unauthorized reproduction, distribution, or commercial use is strictly prohibited. Use of Indigenous imagery and symbols is with respect for cultural significance and community tradition.
+      All content is the property of Nations First Aid and its creator.
     </div>
   </footer>
-
   <script>
     const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
-
     const { createClient } = supabase;
     const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
-
     document.addEventListener("DOMContentLoaded", async () => {
       const { data: { session } } = await supabaseClient.auth.getSession();
-
       if (session && session.user) {
-        // User is already verified
         document.getElementById("contact-auth-section").style.display = "none";
         document.getElementById("contact-info").style.display = "block";
       }
-
       document.getElementById("send-contact-link-btn").addEventListener("click", async () => {
         const email = document.getElementById("contact-email").value;
         if (!email) return alert("Please enter your email.");
-
         const { error } = await supabaseClient.auth.signInWithOtp({
           email,
           options: {
             emailRedirectTo: "https://nationsfirstaid.com/contact.html"
           }
         });
-
         const message = document.getElementById("contact-email-message");
         if (error) {
           message.innerText = "Error: " + error.message;
@@ -110,3 +78,4 @@ ified<!DOCTYPE html>
   </script>
 </body>
 </html>
+
