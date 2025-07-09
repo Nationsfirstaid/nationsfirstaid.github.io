@@ -21,18 +21,22 @@
       <a href="contact.html" class="active">Contact</a>
     </div>
     <main class="form-container">
-      <h2>Contact</h2>
-      <div id="contact-auth-section">
-        <label for="contact-email">Enter your Email Address</label>
-        <input type="email" id="contact-email" class="auth-email-input" required>
-        <button id="send-contact-link-btn" type="button" class="cta">Enter email to Connect</button>
-        <p id="contact-email-message"></p>
-      </div>
-      <div id="contact-info" style="display:none; margin: 18px 0 0 0; color:#b22222; text-align:center; font-size:1.09rem;">
-        Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#b22222;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
-        Phone: 587-599-9355
-      </div>
-    </main>
+  <h2>Contact</h2>
+  <div id="contact-auth-section">
+    <label for="contact-email">Enter your Email Address</label>
+    <input type="email" id="contact-email" class="auth-email-input" required>
+    <button id="send-contact-link-btn" type="button" class="cta">Enter email to Connect</button>
+    <p id="contact-email-message"></p>
+  </div>
+  <div id="contact-info" style="display:none;">
+    <p style="color:#b22222; text-align:center; font-size:1.09rem;">
+      Email: <a href="mailto:nationsfirstaid@mail.com" style="color:#b22222;text-decoration:underline;">nationsfirstaid@mail.com</a><br>
+      Phone: 587-599-9355
+    </p>
+    <p id="contact-verified-msg" style="color:lightgreen;text-align:center;"></p>
+  </div>
+</main>
+
   </div>
   <div class="indigenous-footer">
     <img src="logos/logosindigenous-owned.png.png" alt="Indigenous-Owned and Operated" class="indigenous-logo" />
@@ -46,35 +50,28 @@
   </footer>
   <script>
     const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
-    const { createClient } = supabase;
-    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
-    document.addEventListener("DOMContentLoaded", async () => {
-      const { data: { session } } = await supabaseClient.auth.getSession();
-      if (session && session.user) {
-        document.getElementById("contact-auth-section").style.display = "none";
-        document.getElementById("contact-info").style.display = "block";
-      }
-      document.getElementById("send-contact-link-btn").addEventListener("click", async () => {
-        const email = document.getElementById("contact-email").value;
-        if (!email) return alert("Please enter your email.");
-        const { error } = await supabaseClient.auth.signInWithOtp({
-          email,
-          options: {
-            emailRedirectTo: "https://nationsfirstaid.com/contact.html"
-          }
-        });
-        const message = document.getElementById("contact-email-message");
-        if (error) {
-          message.innerText = "Error: " + error.message;
-          message.style.color = "salmon";
-        } else {
-          message.innerText = "✅ Verified. Thank you for connecting.";
-          message.style.color = "lightgreen";
-          localStorage.setItem("emailForContact", email);
-        }
-      });
-    });
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  if (session && session.user) {
+    document.getElementById("contact-auth-section").style.display = "none";
+    document.getElementById("contact-info").style.display = "block";
+    document.getElementById("contact-verified-msg").innerText = "✅ Verified. Thank you for connecting.";
+  }
+  document.getElementById("send-contact-link-btn").addEventListener("click", async () => {
+    const email = document.getElementById("contact-email").value;
+    if (!email) return alert("Please enter your email.");
+    document.getElementById("contact-email-message").innerText = "";
+    document.getElementById("send-contact-link-btn").style.display = "none";
+    document.getElementById("contact-auth-section").style.display = "none";
+    document.getElementById("contact-info").style.display = "block";
+    document.getElementById("contact-verified-msg").innerText = "✅ Verified. Thank you for connecting.";
+  });
+});
+
   </script>
 </body>
 </html>
