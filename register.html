@@ -73,63 +73,62 @@
   </footer>
   <script>
     const SUPABASE_URL = "https://hhylteexskvugbwrrlkb.supabase.co";
-    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
-    const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    document.addEventListener("DOMContentLoaded", async () => {
-      const { data: { session } } = await client.auth.getSession();
-      if (session && session.user && session.user.email) {
-        document.getElementById("email-auth-section").style.display = "none";
-        document.getElementById("regForm").style.display = "block";
-        document.getElementById("reg-email").value = session.user.email;
-        document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
-        document.getElementById("success-msg").style.display = "block";
-      }
-      document.getElementById("send-link-btn").addEventListener("click", async () => {
-        const emailInput = document.getElementById("auth-email");
-        const email = emailInput.value;
-        if (!email) return alert("Please enter your email.");
-        // Uncomment if you want to actually send a Supabase magic link:
-        // const { error } = await client.auth.signInWithOtp({
-        //   email,
-        //   options: { emailRedirectTo: "https://nationsfirstaid.com/register.html" }
-        // });
-        document.getElementById("email-message").innerText = "✅ Verified. Continue registration below.";
-        emailInput.readOnly = true;
-        document.getElementById("regForm").style.display = "block";
-        document.getElementById("reg-email").value = email;
-      });
-      // Handle date logic
-      const start = document.getElementById("start-date");
-      const end = document.getElementById("end-date");
-      const today = new Date();
-      const plus60 = new Date(today);
-      plus60.setDate(today.getDate() + 60);
-      function fmt(d) {
-        return d.toISOString().split('T')[0];
-      }
-      start.min = fmt(today);
-      start.max = fmt(plus60);
-      start.value = fmt(today);
-      start.addEventListener("change", () => {
-        const sd = new Date(start.value);
-        const max = new Date(sd);
-        max.setDate(sd.getDate() + 60);
-        end.min = fmt(sd);
-        end.max = fmt(max);
-        end.value = fmt(max);
-      });
-      start.dispatchEvent(new Event("change"));
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhoeWx0ZWV4c2t2dWdid3JybGtiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2NDE3MjUsImV4cCI6MjA2NjIxNzcyNX0.9PBu4UPi49jQEkc78SGMp5SaMDX_K575DRnUCR0H5pk";
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data: { session } } = await client.auth.getSession();
+  if (session && session.user && session.user.email) {
+    document.getElementById("email-auth-section").style.display = "none";
+    document.getElementById("regForm").style.display = "block";
+    document.getElementById("reg-email").value = session.user.email;
+    document.getElementById("success-msg").innerText = "✅ Verified! Please complete the form.";
+    document.getElementById("success-msg").style.display = "block";
+  }
+  document.getElementById("send-link-btn").addEventListener("click", async () => {
+    const emailInput = document.getElementById("auth-email");
+    const email = emailInput.value;
+    if (!email) return alert("Please enter your email.");
+    document.getElementById("email-message").innerText = "✅ Verified. Continue registration below.";
+    emailInput.readOnly = true;
+    // Hide the button after pressed
+    document.getElementById("send-link-btn").style.display = "none";
+    // Show registration form and prefill email
+    document.getElementById("regForm").style.display = "block";
+    document.getElementById("reg-email").value = email;
+  });
+
+  // Date logic
+  const start = document.getElementById("start-date");
+  const end = document.getElementById("end-date");
+  const today = new Date();
+  const plus60 = new Date(today);
+  plus60.setDate(today.getDate() + 60);
+  function fmt(d) { return d.toISOString().split('T')[0]; }
+  start.min = fmt(today);
+  start.max = fmt(plus60);
+  start.value = fmt(today);
+  start.addEventListener("change", () => {
+    const sd = new Date(start.value);
+    const max = new Date(sd);
+    max.setDate(sd.getDate() + 60);
+    end.min = fmt(sd);
+    end.max = fmt(max);
+    end.value = fmt(max);
+  });
+  start.dispatchEvent(new Event("change"));
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const regForm = document.getElementById("regForm");
+  if (regForm) {
+    regForm.addEventListener("submit", function(e) {
+      const btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerText = "Submitting...";
     });
-    document.addEventListener('DOMContentLoaded', function() {
-      const regForm = document.getElementById("regForm");
-      if (regForm) {
-        regForm.addEventListener("submit", function(e) {
-          const btn = this.querySelector('button[type="submit"]');
-          btn.disabled = true;
-          btn.innerText = "Submitting...";
-        });
-      }
-    });
+  }
+});
+
   </script>
 </body>
 </html>
