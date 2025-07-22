@@ -754,5 +754,42 @@ First Nations-logo {
   margin: 10px 0 0 0;
 }
 
+.footer-extras {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+  margin-top: 48px;
+}
+
+.footer-logo {
+  width: 60px;           /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 10px;   /* Space between image and button */
+}
+
+.top-btn {
+  background: #fff;
+  color: #b22222;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 22px;
+  font-size: 1rem;
+  margin-bottom: 18px;   /* Space above the actual footer */
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.14s;
+  box-shadow: 0 2px 8px rgba(80,0,0,0.09);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-btn:hover {
+  background: #ffe680;
+  color: #8c1818;
+  transform: scale(1.09);
+}
 
 
