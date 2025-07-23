@@ -682,7 +682,7 @@ First Nations-logo {
 }
 
 /* (OPTIONAL: For a more compact look on mobile, you can tweak the font size) */
-@media (max-width: 600px) {
+@media (max-width: 100px) {
   .auth-email-input {
     font-size: 0.96rem;
     padding: 8px 10px;
@@ -779,7 +779,7 @@ First Nations-logo {
 }
 
 .footer-logo {
-  width: 10px;           /* Adjust size as needed */
+  width: 20px;           /* Adjust size as needed */
   height: auto;
   margin-bottom: 10px;   /* Space between image and button */
 }
