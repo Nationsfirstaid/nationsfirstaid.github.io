@@ -561,7 +561,7 @@ First Nations-logo {
 }
 
 .indigenous-logo-small {
-  width: 50px;   /* or any desired small size */
+  width: 100px;   /* or any desired small size */
   height: auto;
   margin-bottom: 16px;
   display: block;
@@ -779,7 +779,7 @@ First Nations-logo {
 }
 
 .footer-logo {
-  width: 50px;           /* Adjust size as needed */
+  width: 100px;           /* Adjust size as needed */
   height: auto;
   margin-bottom: 10px;   /* Space between image and button */
 }
