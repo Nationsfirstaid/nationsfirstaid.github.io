@@ -616,8 +616,15 @@ footer {
   margin: 30px 0 0 0;
 }
 .indigenous-logo-small {
-  width: 200px; /* Adjust as needed; use another class for larger */
+  width: 50px; /* Adjust as needed; use another class for larger */
   height: auto;
   margin-bottom: 16px;
   display: block;
 }
+.indigenous-logo-large {
+  width: 100px; /* Adjust as needed; use another class for larger */
+  height: auto;
+  margin-bottom: 16px;
+  display: block;
+}
+
